@@ -10,5 +10,5 @@ CREATE TABLE `user` (
   `firstname` varchar(50) NOT NULL,
   `lastname` varchar(50) NOT NULL,
   `password` varchar(60) NOT NULL,
-  PRIMARY KEY (`id`,`email`)
+  PRIMARY KEY (`email`)
 ) 
