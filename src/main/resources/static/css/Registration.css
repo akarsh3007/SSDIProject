@@ -1,1 +1,16 @@
 @CHARSET "ISO-8859-1";
+.signup{
+	width : 30% !important;
+	border: 1px solid grey;
+	border-radius : 10px;
+	margin-top:4% !important;
+	margin-right : 54% !important;
+}
+form{
+	margin-bottom : 6% !important;
+}
+body{
+	font-family:'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif !important;
+	background-image : url("/css/Images/backgroundImg.PNG");
+	color:white !important;
+}
