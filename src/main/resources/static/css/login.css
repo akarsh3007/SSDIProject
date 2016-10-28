@@ -1,0 +1,17 @@
+.input[type=button],input[type=submit]
+{
+    width: 100% !important;
+    max-width: 35% !important;
+    margin: auto !important;
+    padding-right: 10px !important;
+    margin: 10px !important;
+}
+
+.login-container {
+    max-width: 20% !important;
+    margin: 0 auto !important;
+}
+
+.form-actions {
+    margin-top: 3% !important;
+}
