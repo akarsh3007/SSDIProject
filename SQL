@@ -2,12 +2,12 @@
 CREATE DATABASE `cuisinerating`;
 
 ## Create User Table #
-
-CREATE TABLE `user` (
+create TABLE `user` (
   `id` int(10) AUTO_INCREMENT,
   `email` varchar(50) NOT NULL UNIQUE,
   `firstname` varchar(50) NOT NULL,
   `lastname` varchar(50) NOT NULL,
   `password` varchar(60) NOT NULL,
+   `contact`  bigint NOT NULL,
   PRIMARY KEY (`id`)
 ) 
