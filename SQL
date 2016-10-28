@@ -1,3 +1,6 @@
+## Create Database ##
+CREATE DATABASE `cuisinerating`;
+
 ## Create User Table #
 
 CREATE TABLE `user` (
