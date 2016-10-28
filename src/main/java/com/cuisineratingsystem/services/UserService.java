@@ -32,5 +32,31 @@ public class UserService {
 		return userRepository.findByEmail(email);
 	}
 	
+	public User authenticateUser(String email, String password)
+	{
+		User user = findUserByEmail(email);
+		boolean isAuthenticated = false;
+		if(user!=null)
+		{	
+			if(user.getPassword().equals(password))
+			{
+				isAuthenticated = true;
+			}
+		
+		}
+		if(isAuthenticated)
+			return user;
+		else
+			return null;
+		
+	}
 	
+	public boolean createUser(User user)
+	{
+		User savedUser = userRepository.save(user);
+		if(savedUser !=null)
+			return true;
+		else
+			return false;
+	}
 }
