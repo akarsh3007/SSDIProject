@@ -3,11 +3,8 @@ package com.cuisineratingsystem.controllers;
 
 import java.util.*;
 
-import javax.servlet.http.HttpServlet;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,10 +30,12 @@ public class AccountController {
 		return userService.getAllUsers();
 	}
 	
-	@RequestMapping(path="/users/{userName}", method=RequestMethod.GET)
-	public User GetUser(@PathVariable("userName") String userName)
+	@RequestMapping(path="/users/{email}", method=RequestMethod.GET)
+	public User GetUser(@PathVariable("email") String email)
 	{
-		return userService.findUserByUserName(userName);
+		StringBuilder sb = new StringBuilder(email);
+		sb.append(".edu");	
+		return userService.findUserByEmail(sb.toString());
 	}
 	
 	

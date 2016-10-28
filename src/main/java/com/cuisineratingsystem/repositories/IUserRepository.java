@@ -10,6 +10,6 @@ import com.cuisineratingsystem.model.User;
 @Repository
 public interface IUserRepository extends JpaRepository<User, Integer>
 {
-	@Query("select u from User u where u.userName = :userName")
-	User findByUserName(@Param("userName")String userName);
+	@Query("select u from User u where u.email = :email")
+	User findByEmail(@Param("email")String email);
 }
