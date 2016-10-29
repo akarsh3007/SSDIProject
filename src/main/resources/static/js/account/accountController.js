@@ -1,4 +1,13 @@
-app.controller('accountController',function($scope,$window,accountService){
-	//var firstname =  $scope.firstname;
-	$scope.count=accountService.saveFunction('abcd');
+
+app.controller('accountController',function($scope,accountService){
+	/*$scope.firstName;
+	$scope.lastName;
+	$scope.email;
+	$scope.password;
+	$scope.contact;*/
+	console.log('1---');
+	$scope.signUp = function(){
+		accountService.saveFunction($scope.firstname,$scope.lastname, $scope.contact, $scope.email, $scope.passWord, $scope.confirmPassword);
+	}
+	
 });
