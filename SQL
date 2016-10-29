@@ -5,9 +5,9 @@ CREATE DATABASE `cuisinerating`;
 create TABLE `user` (
   `id` int(10) AUTO_INCREMENT,
   `email` varchar(50) NOT NULL UNIQUE,
-  `firstname` varchar(50) NOT NULL,
-  `lastname` varchar(50) NOT NULL,
-  `password` varchar(60) NOT NULL,
+  `firstname` varchar(15) NOT NULL,
+  `lastname` varchar(15) NOT NULL,
+  `password` varchar(12) NOT NULL,
    `contact`  bigint NOT NULL,
   PRIMARY KEY (`id`)
 ) 
