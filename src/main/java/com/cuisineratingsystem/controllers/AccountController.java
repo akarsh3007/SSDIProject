@@ -41,9 +41,8 @@ public class AccountController {
 	@RequestMapping(path="/users/{email}", method=RequestMethod.GET)
 	public User GetUser(@PathVariable("email") String email)
 	{
-		StringBuilder sb = new StringBuilder(email);
-		sb.append(".edu");	
-		return userService.findUserByEmail(sb.toString());
+		email = email.replace("-", ".");
+		return userService.findUserByEmail(email);
 	}
 	
 	@RequestMapping(path = "/signIn", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
