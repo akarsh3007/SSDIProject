@@ -17,64 +17,49 @@
 </head>    
 <body ng-app="cuisinerating" ng-controller="accountController">
 <!-- Navigation -->
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-		<div class="container">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="/index.html">Tasty</a>
-			</div>
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse"
-				id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li><a href="/index.html">Home</a></li>
-					<li><a href="/html/login.html">Sign In</a>
-					</li>
-					<li><a href="#">Register</a></li>
-				</ul>
-			</div>
-			<!-- /.navbar-collapse -->
-		</div>
-		<!-- /.container -->
-	</nav>
+	<div ng-include="'NavigationBar.html'"></div>
 <div id="parentDiv">
 <div class="container signup">
   <h2> Sign-up form</h2>
   <hr/>
-  <form>
-    <br/> 
+  <form name="signUpForm">
+    <p ng-show="signUpForm.firstname.$invalid && !signUpForm.firstname.$pristine" class="help-block" style="color: red;">First name is mandatory.</p>
+    <p ng-show="signUpForm.lastname.$invalid && !signUpForm.lastname.$pristine" class="help-block" style="color: red;">Last name is mandatory.</p>
+    <p ng-show="signUpForm.email.$invalid && !signUpForm.email.$pristine" class="help-block" style="color: red;">Email id is mandatory.</p>
+    <p ng-show="signUpForm.password.$invalid && !signUpForm.password.$pristine" class="help-block" style="color: red;">Password is mandatory.</p>
+    <p ng-show="signUpForm.confirmPassword.$invalid && !signUpForm.confirmPassword.$pristine" class="help-block" style="color: red;">Confirmation of password is mandatory.</p>
     <div class="form-inline">
     <div class="form-group">
-      <input type="text" class="form-control" id="firstname" placeholder="First name" ng-model="firstname" required>
+      <input type="text" class="form-control" name="firstname" id="firstname" placeholder="First name" ng-model="firstname" ng-maxlength="10" ng-required="true">
+      
 	  <label> </label>
-      <input type="text" class="form-control" id="lastname" placeholder="Last name" ng-model="lastname" required>
+      <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Last name" ng-model="lastname" ng-required="true">
+      
     </div>
 	</div>
 	<div class="form-inline">
     <div class="form-group">	
     <br/>
-     <input type="text" class="form-control" id="contact" placeholder="Contact number" ng-model="contact" required>
+     <input type="tel" class="form-control" name="contact" id="contact" placeholder="Contact number" ng-model="contact">
+    
      <label></label>
-     <input type="email" class="form-control" id="email" placeholder="Email id" ng-model="email" required>
+     <input type="email" class="form-control" name="email" id="email" placeholder="Email id" ng-model="email" ng-required="true">
+    
     </div>
     </div>
 	<div class="form-inline">
     <div class="form-group">
     <br/>	
-   	  <input type="password" class="form-control" id="pwd" placeholder="Password" ng-model="passWord" required>
+   	  <input type="password" class="form-control" name="password" id="pwd" placeholder="Password" ng-model="passWord" ng-required="true">
+   	 
    	  <label></label>
-     <input type="password" class="form-control" id="confirmPwd" placeholder="Confirm password" ng-model="confirmPassword" required>
+     <input type="password" class="form-control" name="confirmPassword" id="confirmPwd" placeholder="Confirm password" ng-model="confirmPassword" ng-required="true">
+     
     </div>
    </div>
     <br/>
     <div class="form-actions">
-    <button type="submit" class="btn btn-default" ng-click="signUp();">Submit</button> 
+    <button type="submit" class="btn btn-default" ng-disabled="signUpForm.$invalid" ng-click="signUp();">Submit</button> 
 	</div>  
   </form>
 </div>
