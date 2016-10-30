@@ -8,6 +8,6 @@ create TABLE `user` (
   `firstname` varchar(15) NOT NULL,
   `lastname` varchar(15) NOT NULL,
   `password` varchar(12) NOT NULL,
-   `contact`  bigint NOT NULL,
+   `contact`  bigint,
   PRIMARY KEY (`id`)
-) 
+)
