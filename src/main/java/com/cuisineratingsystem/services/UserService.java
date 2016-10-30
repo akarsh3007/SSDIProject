@@ -61,8 +61,7 @@ public class UserService {
 			if(savedUser !=null)
 				return true;
 		}catch(Exception e)
-		{
-			
+		{	
 		}
 		return false;
 	}
