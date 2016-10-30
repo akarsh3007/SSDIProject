@@ -25,53 +25,28 @@ body {
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
-
-	<!-- Navigation -->
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-		<div class="container">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="/index.html">Tasty</a>
-			</div>
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse"
-				id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li><a href="/index.html">Home</a></li>
-					<li><a href="/html/login.html">Sign In</a>
-					</li>
-					<li><a href="#">Register</a></li>
-				</ul>
-			</div>
-			<!-- /.navbar-collapse -->
-		</div>
-		<!-- /.container -->
-	</nav>
-	<div id="mainWrapper">
+<body data-ng-app="cuisinerating">
+<div ng-include="'NavigationBar.html'"></div>
+	
+	<div id="mainWrapper" data-ng-controller="accountController">
             <div class="login-container">
                 <div class="login-card">
                     <div class="login-form">
-                        <form action="${loginUrl}" method="post" class="form-horizontal">
+                        <form  class="form-horizontal" name="loginForm" novalidate="">
+                        	<p data-ng-hide="isAuthentionValid" class="help-block" style="color: red;">Login failed. Either email or password is incorrect.</p>
                             <div class="input-group input-sm">
                                 <label class="input-group-addon" for="username"><i class="fa fa-user"></i></label>
-                                <input type="text" class="form-control" id="username" name="ssoId" placeholder="Enter Username" required>
+                                <input type="text" class="form-control" id="username" name="ssoId" placeholder="Enter Email" data-ng-required="true" data-ng-model="user.email" >
+                                <p ng-show="loginForm.user.username.$invalid && !loginForm.user.username.$pristine" class="help-block" style="color: red;">Email is required.</p>
                             </div>
                             <div class="input-group input-sm">
                                 <label class="input-group-addon" for="password"><i class="fa fa-lock"></i></label>
-                                <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" required>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" data-ng-required="true" data-ng-model="user.password" >
+                                <p ng-show="loginForm.user.password.$invalid && !loginForm.user.password.$pristine" class="help-block" style="color: red;">Password is required.</p>
                             </div>
-                            <input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}" />
-
                             <div class="form-actions">
                                 <input type="submit"
-                                    class="btn btn-block btn-primary btn-default" value="Log in">
+                                    class="btn btn-block btn-primary btn-default" data-ng-disabled="loginForm.$invalid" value="Log in" data-ng-click="signIn()">
                             </div>
                         </form>
                     </div>
@@ -79,16 +54,12 @@ body {
             </div>
         </div>
 	
-	<!-- jQuery Version 1.11.1 -->
 	<script src="/js/jquery.js"></script>
-
-	<!-- Bootstrap Core JavaScript -->
-	<script
-		src="/js/bootstrap.min.js"></script>
-	<!-- Bootstrap Core JavaScript -->
-	<script
-		src="/js/angular.min.js"></script>
-
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/angular.min.js" type="text/javascript"></script>
+	<script src="/js/app.js" type="text/javascript"> </script>
+	<script src="/js/account/accountService.js" type="text/javascript"> </script>
+	<script src="/js/account/accountController.js" type="text/javascript"> </script>
 </body>
 
 </html>

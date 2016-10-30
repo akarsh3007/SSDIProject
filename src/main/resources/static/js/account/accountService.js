@@ -61,6 +61,28 @@ app.service('accountService',function($http){
 						}
 					}
 				});
+	}
+	
+	this.authenticate = function(user)
+	{
+		console.log(user.email);
+		console.log(user.passWord);
 
+		return $http({
+        	url: "http://localhost:8080/signIn",
+        	method: "POST",
+        	data:user,
+        	headers: { "Accept": "application/json; odata=verbose" },
+    });
+		
+	}
+	
+		this.logout = function()
+		{
+			return $http({
+	        	url: "http://localhost:8080/logout",
+	        	method: "Get",
+	        	headers: { "Accept": "application/json; odata=verbose" },
+	    });
 	}
 });

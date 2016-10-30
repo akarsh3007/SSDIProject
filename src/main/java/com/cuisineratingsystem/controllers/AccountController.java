@@ -72,5 +72,13 @@ public class AccountController {
 		return userService.createUser(user);
 		
 	}
+	
+	 @RequestMapping(path="/logout",method = RequestMethod.GET)
+	    public void logout(HttpSession userSession, HttpServletRequest request) {
+
+	        if(userSession != null){
+	            userSession.invalidate();
+	        }
+	    }
 
 }
