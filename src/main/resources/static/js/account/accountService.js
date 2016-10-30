@@ -13,7 +13,7 @@ app.service('accountService',function($http){
 				url : 'http://localhost:8080/users/'+emailId[0]+'-'+emailId[1]
 		}
 		$http(reqUnique).then(
-				function(response){
+				function(response){ 
 					if((response.status == 200)){
 						console.log('response-----'+response);
 						if(response.data == "" || response.data == 'undefined'){
