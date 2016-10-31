@@ -43,7 +43,7 @@ app.controller('accountController',function($scope,$window,accountService){
 	            function (data, status, headers, config) {
 		               	console.log(data);
 		               	console.log("logout successfully");
-		                var url = "http://" + $window.location.host + "/index.html";
+		                var url = "http://" + $window.location.host + "/html/login.html";
 		                $window.location.href = url;
 		               
 		            },
