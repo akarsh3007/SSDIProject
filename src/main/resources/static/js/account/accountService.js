@@ -1,4 +1,4 @@
-app.service('accountService',function($http){
+app.service('accountService',function($http,$window,$timeout){
 
 	this.saveFunction= function(firstName, lastName, contactNo, email, passWord, confirmPassword) {
 		console.log('fn--'+firstName);
@@ -7,7 +7,7 @@ app.service('accountService',function($http){
 		console.log('--'+email);
 		console.log('--'+passWord);
 		var emailId = email.split('.');
-		
+		 
 		var reqUnique = {
 				method : 'GET',
 				url : 'http://localhost:8080/users/'+emailId[0]+'-'+emailId[1]
@@ -31,14 +31,17 @@ app.service('accountService',function($http){
 										contactNo : contactNo
 									}
 							}
-							if(passWord === confirmPassword){
+							
 								$http(req).then(
 										function(response) {
 
 											if (response.status == 200) {
 
 												console.log("Sign Up Successful");
-
+												swal('Registration Successful','','success');
+												$timeout(function(){
+													$window.location.href="/html/login.html";
+												},3000)
 
 											} else {
 												console.log("Error: "
@@ -52,12 +55,10 @@ app.service('accountService',function($http){
 											else
 												console.log("Error: " + response.data.message);
 										});
-							}else{
-								alert("Your password and confirmation password do not match");
-							}	
+							
 						}
 						else{
-							alert("An account with this email id already exists.");
+							swal('Registration Failed','An account with email id already exists','error');
 						}
 					}
 				});
