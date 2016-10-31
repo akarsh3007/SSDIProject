@@ -1,5 +1,5 @@
 
-app.controller('accountController',function($scope,$window,accountService){
+app.controller('accountController',function($scope,$window,$timeout,accountService){
 	/*$scope.firstName;
 	$scope.lastName;
 	$scope.email;
@@ -43,8 +43,12 @@ app.controller('accountController',function($scope,$window,accountService){
 	            function (data, status, headers, config) {
 		               	console.log(data);
 		               	console.log("logout successfully");
-		                var url = "http://" + $window.location.host + "/html/login.html";
-		                $window.location.href = url;
+		               	swal('Logout Successful','','success');
+		               	$timeout(function(){
+		               		var url = "http://" + $window.location.host + "/html/login.html";
+			                $window.location.href = url;
+						},3000)
+		                
 		               
 		            },
 		            function (data, status, headers, config) {
