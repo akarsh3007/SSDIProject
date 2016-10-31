@@ -1,6 +1,8 @@
 package com.cuisineratingsystem.services;
 
 import java.util.*;
+import java.util.concurrent.ExecutionException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.cuisineratingsystem.model.User;
@@ -53,10 +55,14 @@ public class UserService {
 	
 	public boolean createUser(User user)
 	{
-		User savedUser = userRepository.save(user);
-		if(savedUser !=null)
-			return true;
-		else
-			return false;
+		try
+		{
+			User savedUser = userRepository.save(user);
+			if(savedUser !=null)
+				return true;
+		}catch(Exception e)
+		{	
+		}
+		return false;
 	}
 }
