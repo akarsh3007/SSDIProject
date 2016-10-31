@@ -12,10 +12,9 @@
 <link rel="stylesheet" type="text/css"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" />
 <style>
-body {
-	padding-top: 70px;
-	/* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-}
+
+
+[ng\:cloak],[ng-cloak],.ng-cloak{display:none !important}
 </style>
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -28,7 +27,7 @@ body {
 <body data-ng-app="cuisinerating">
 <div ng-include="'NavigationBar.html'"></div>
 	
-	<div id="mainWrapper" data-ng-controller="accountController">
+	<div id="mainWrapper" data-ng-controller="accountController" ng-cloak>
             <div class="login-container">
                 <div class="login-card">
                     <div class="login-form">
