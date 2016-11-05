@@ -11,3 +11,5 @@ create TABLE `user` (
    `contact`  bigint,
   PRIMARY KEY (`id`)
 )
+
+
