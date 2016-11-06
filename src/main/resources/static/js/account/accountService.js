@@ -86,4 +86,13 @@ app.service('accountService',function($http,$window,$timeout){
 	        	headers: { "Accept": "application/json; odata=verbose" },
 	    });
 	}
+		
+		this.getCurrentUser= function()
+		{
+			return $http({
+	        	url: "http://localhost:8080/currentuser",
+	        	method: "GET",
+	          	headers: { "Accept": "application/json" },
+	    });
+		}
 });

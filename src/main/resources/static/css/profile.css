@@ -1,0 +1,15 @@
+.profile{
+	border: 1px solid grey;
+	border-radius : 10px;
+	margin : 0 auto !important;
+	max-width: 300px !important;
+	margin-top:20px !important;
+}
+form{
+	margin-bottom : 6% !important;
+}
+body{
+	font-family:'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif !important;
+	background-image : url("/css/Images/backgroundImg.PNG");
+	color:white !important;
+}

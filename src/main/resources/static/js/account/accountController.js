@@ -55,4 +55,16 @@ app.controller('accountController',function($scope,$window,$timeout,accountServi
 		                console.log("Error " + status);
 		            });
 	}
+	
+	$scope.getCurrentUser= function()
+	{
+		accountService.getCurrentUser().then(
+				function (data, status, headers, config) {
+	              $scope.currentUser=data.data;
+	               
+	            },
+	            function (data, status, headers, config) {
+	                console.log("Error " + status);
+	            });	
+	}
 });
