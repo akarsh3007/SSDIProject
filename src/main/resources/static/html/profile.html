@@ -55,13 +55,13 @@ body {
 	<form name="userProfileForm">
 	  
     <br/>
-    First Name:<input type="text" class="form-control" name="firstname" id="firstname" placeholder="First name" ng-model="currentUser.firstName">
+    First Name:<input type="text" class="form-control" name="firstname" id="firstname" placeholder="First name" ng-disabled=true ng-model="currentUser.firstName">
 	<br/>
-    Last Name:<input type="text" class="form-control" name="lastname" id="lastname" placeholder="Last name" ng-model="currentUser.lastName"> 	
+    Last Name:<input type="text" class="form-control" name="lastname" id="lastname" placeholder="Last name" ng-disabled=true ng-model="currentUser.lastName"> 	
     <br/>
-    Contact No:<input type="tel" class="form-control" name="contact" id="contact" placeholder="Contact number" ng-model="currentUser.contactNo">
+    Contact No:<input type="tel" class="form-control" name="contact" id="contact" placeholder="Contact number" ng-disabled=true ng-model="currentUser.contactNo">
     <br/>
-    Email ID:<input type="email" class="form-control" name="email" id="email" placeholder="Email id" ng-model="currentUser.email">
+    Email ID:<input type="email" class="form-control" name="email" id="email" placeholder="Email id" ng-disabled=true ng-model="currentUser.email">
        
   </form>
 </div>
