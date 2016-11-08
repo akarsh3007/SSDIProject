@@ -11,3 +11,57 @@ create TABLE `user` (
    `contact`  bigint,
   PRIMARY KEY (`id`)
 )
+
+create table location(
+latitude float,
+longitude float,
+city varchar(30),
+zipcode int,
+location_ID int(10) auto_increment,
+primary key (location_ID)
+)
+
+create table restaurant(
+rest_name varchar(40),
+restaurant_ID int(10) auto_increment,
+location_ID int(10),
+primary key (restaurant_ID),
+foreign key (location_ID) references location(location_ID)
+)
+
+create table cuisine(
+cuisine_name varchar(40),
+rating int(1),
+no_of_raters int(5),
+cuisine_ID int(10) auto_increment,
+restaurant_ID int(10),
+primary key (cuisine_ID),
+foreign key (restaurant_ID) references restaurant(restaurant_ID)
+)
+
+create table dish(
+dish_name varchar(40),
+dish_description varchar(100),
+rating int(1),
+no_of_raters int(5),
+dish_ID int(10) auto_increment,
+cuisine_ID int(10),
+primary key (dish_ID),
+foreign key (cuisine_ID) references cuisine(cuisine_ID)
+)
+ 
+create table cuisine_review(
+cuisine_comment_desc varchar(300),
+cuisine_comment_ID int(10) auto_increment,
+cuisine_ID int(10),
+primary key (cuisine_comment_ID),
+foreign key (cuisine_ID) references cuisine(cuisine_ID)
+)
+
+create table dish_review(
+dish_comment_desc varchar(300),
+dish_comment_ID int(10) auto_increment,
+dish_ID int(10),
+primary key (dish_comment_ID),
+foreign key (dish_ID) references dish(dish_ID)
+)
