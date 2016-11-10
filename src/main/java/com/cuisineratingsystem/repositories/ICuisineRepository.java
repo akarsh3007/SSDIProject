@@ -1,5 +1,11 @@
 package com.cuisineratingsystem.repositories;
 
-public class ICuisineRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.cuisineratingsystem.model.Cuisine;
+
+@Repository
+public interface ICuisineRepository extends JpaRepository<Cuisine, Integer>{
 
 }
