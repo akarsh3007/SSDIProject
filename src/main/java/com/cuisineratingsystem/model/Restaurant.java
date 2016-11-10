@@ -1,10 +1,16 @@
 package com.cuisineratingsystem.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import java.util.*;
 
 @Entity
 @Table(name="restaurant")
@@ -34,6 +40,20 @@ public class Restaurant {
 		return restaurant_ID;
 	}
 	
+	//@JsonManagedReference("restaurant-cuisine")
+	@JsonManagedReference
+	@OneToMany(mappedBy="restaurant",targetEntity=Cuisine.class, cascade=CascadeType.PERSIST)
+	private List<Cuisine> cuisines;
+	
+	
+	public List<Cuisine> getCuisines() {
+		return cuisines;
+	}
+
+	public void setCuisines(List<Cuisine> cuisine) {
+		this.cuisines = cuisine;
+	}
+
 	public void setRestaurant_ID(int restaurant_ID) {
 		this.restaurant_ID = restaurant_ID;
 	}

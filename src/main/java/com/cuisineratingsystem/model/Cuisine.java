@@ -1,14 +1,21 @@
 package com.cuisineratingsystem.model;
 
+import java.util.Collection;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name="cuisine")
@@ -28,11 +35,33 @@ public class Cuisine {
 	@Column(name="no_of_raters")
 	private int no_of_raters;
 	
-	@ManyToOne
+	
+	@ManyToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name="restaurant_ID")
-	private Restaurant restaurant_ID;
+	private Restaurant restaurant;
 	
+	@JsonManagedReference
+	@OneToMany(mappedBy="cuisine",targetEntity=Dish.class, cascade=CascadeType.PERSIST)
+	private List<Dish> dish;
 	
+	@JsonManagedReference
+	@OneToMany(mappedBy="cuisine",targetEntity=CuisineReview.class, cascade=CascadeType.PERSIST)
+	private List<CuisineReview> cuisineReviews;
+
+	public List<CuisineReview> getCuisineReviews() {
+		return cuisineReviews;
+	}
+	public void setCuisineReviews(List<CuisineReview> cuisineReviews) {
+		this.cuisineReviews = cuisineReviews;
+	}
+
+	public List<Dish> getDish() {
+		return dish;
+	}
+	public void setDish(List<Dish> dish) {
+		this.dish = dish;
+	}
+
 	public int getCuisine_ID() {
 		return cuisine_ID;
 	}
@@ -57,10 +86,13 @@ public class Cuisine {
 	public void setNo_of_raters(int no_of_raters) {
 		this.no_of_raters = no_of_raters;
 	}
-	public Restaurant getRestaurant_ID() {
-		return restaurant_ID;
+	
+	//@JsonBackReference("restaurant-cuisine")
+	@JsonBackReference
+	public Restaurant getRestaurant() {
+		return restaurant;
 	}
-	public void setRestaurant_ID(Restaurant restaurant_ID) {
-		this.restaurant_ID = restaurant_ID;
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
 	}
 }
