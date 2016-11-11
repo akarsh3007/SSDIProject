@@ -1,5 +1,7 @@
 package com.cuisineratingsystem.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,7 +15,12 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name="cuisine_review")
-public class CuisineReview {
+public class CuisineReview implements Serializable{
+
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1229369888662520404L;
 
 @Id
 @GeneratedValue(strategy=GenerationType.AUTO)

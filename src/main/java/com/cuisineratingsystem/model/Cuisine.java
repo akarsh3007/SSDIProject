@@ -1,5 +1,6 @@
 package com.cuisineratingsystem.model;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
@@ -14,13 +15,17 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name="cuisine")
-public class Cuisine {
+public class Cuisine implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5694960411769253025L;
+
 	@Id
 	@GeneratedValue()
 	@Column(name="cuisine_ID")
@@ -35,9 +40,17 @@ public class Cuisine {
 	@Column(name="no_of_raters")
 	private int no_of_raters;
 	
+	@Column(name="restaurant_ID")
+	private int restaurant_ID;
 	
+	public int getRestaurant_ID() {
+		return restaurant_ID;
+	}
+	public void setRestaurant_ID(int restaurant_ID) {
+		this.restaurant_ID = restaurant_ID;
+	}
 	@ManyToOne(cascade=CascadeType.PERSIST)
-	@JoinColumn(name="restaurant_ID")
+	@JoinColumn(name="restaurant_ID", insertable=false,updatable=false)
 	private Restaurant restaurant;
 	
 	@JsonManagedReference

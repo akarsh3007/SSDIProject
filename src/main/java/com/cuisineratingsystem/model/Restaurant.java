@@ -10,11 +10,17 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+import java.io.Serializable;
 import java.util.*;
 
 @Entity
 @Table(name="restaurant")
-public class Restaurant {
+public class Restaurant implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8022966604897331607L;
 
 	@Id
 	@GeneratedValue()

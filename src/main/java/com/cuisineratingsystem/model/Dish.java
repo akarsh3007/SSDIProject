@@ -1,5 +1,6 @@
 package com.cuisineratingsystem.model;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
@@ -18,8 +19,13 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name="dish")
-public class Dish {
+public class Dish implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8579792059062886375L;
+
 	@Id
 	@GeneratedValue()
 	@Column(name="dish_ID")

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cuisineratingsystem.model.Cuisine;
+import com.cuisineratingsystem.model.Restaurant;
 import com.cuisineratingsystem.repositories.ICuisineRepository;
 
 @Service
@@ -25,6 +26,20 @@ public class CuisineService {
 		public List<Cuisine> getAllCuisines(){
 			
 			return cuisineRepository.findAll();
+		}
+		
+		public Cuisine getCuisineById(int id)
+		{
+			return cuisineRepository.findOne(id);
+		}
+		
+		public List<Cuisine> searchCuisines(String searchToken)
+		{
+			return cuisineRepository.searchCuisine(searchToken);
+		}
+
+		public List<Cuisine> getAllCuisinesByRestId(int restid) {
+			return cuisineRepository.getAllCuisineByRestId(restid);
 		}
 		
 }
