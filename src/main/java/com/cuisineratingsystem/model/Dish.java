@@ -32,7 +32,7 @@ public class Dish {
 	private String dish_description;
 	
 	@Column(name="rating")
-	private int rating;
+	private float rating;
 	
 	@Column(name="no_of_raters")
 	private int no_of_raters;
@@ -78,11 +78,11 @@ public class Dish {
 		this.dish_description = dish_description;
 	}
 
-	public int getRating() {
+	public float getRating() {
 		return rating;
 	}
 
-	public void setRating(int rating) {
+	public void setRating(float rating) {
 		this.rating = rating;
 	}
 
