@@ -12,6 +12,6 @@ import com.cuisineratingsystem.model.Cuisine;
 public interface ICuisineRepository extends JpaRepository<Cuisine, Integer>{
 
 	 @Modifying
-	 @Query("UPDATE Cuisine c SET c.rating=:rating, c.no_of_raters=:no_of_raters WHERE c.id=:id")
-	 Cuisine updateRating(@Param("id") int id, @Param("rating") float rating, @Param("no_of_raters") int no_of_raters);
+	 @Query("UPDATE Cuisine c SET c.rating=:rating, c.no_of_raters=:no_of_raters WHERE c.cuisine_ID=:cuisine_ID")
+	 Cuisine updateRating(@Param("cuisine_ID") int cuisine_ID, @Param("rating") float rating, @Param("no_of_raters") int no_of_raters);
 }
