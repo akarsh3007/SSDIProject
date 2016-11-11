@@ -16,7 +16,7 @@ public class CuisineService {
 			this.cuisineRepository = cuisineRepository;
 		}
 		
-		public Cuisine updateRatingForCuisine(int id, float rating, int no_of_raters){
+		public int updateRatingForCuisine(int id, float rating, int no_of_raters){
 			return cuisineRepository.updateRating(id, rating, no_of_raters);
 		}
 		

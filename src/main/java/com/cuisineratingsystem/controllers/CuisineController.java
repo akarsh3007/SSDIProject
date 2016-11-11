@@ -23,7 +23,7 @@ public class CuisineController {
 	}
 	
 	@RequestMapping(path="/updateCuisineRating", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
-	public Cuisine UpdateCusuineRating(@RequestBody Cuisine cuisine, HttpServletRequest request)
+	public int UpdateCusuineRating(@RequestBody Cuisine cuisine, HttpServletRequest request)
 	{
 		
 		return cuisineService.updateRatingForCuisine(cuisine.getCuisine_ID(), cuisine.getRating(), cuisine.getNo_of_raters());
