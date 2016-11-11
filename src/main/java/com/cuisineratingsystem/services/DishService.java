@@ -1,5 +1,7 @@
 package com.cuisineratingsystem.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -22,5 +24,10 @@ public class DishService {
 	public int updateRatingForDish(int id, float rating, int no_of_raters){
 		
 		return dishRepository.updateRating(id, rating, no_of_raters);
+	}
+	
+	public List<Dish> getAllDishes(){
+		
+		return dishRepository.findAll();
 	}
 }

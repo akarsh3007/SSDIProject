@@ -1,4 +1,6 @@
 package com.cuisineratingsystem.controllers;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +30,11 @@ public class CuisineController {
 		
 		return cuisineService.updateRatingForCuisine(cuisine.getCuisine_ID(), cuisine.getRating(), cuisine.getNo_of_raters());
 		
+	}
+	
+	@RequestMapping(path="/getallcuisines", method=RequestMethod.GET)
+	public List<Cuisine> getAllCuisines(){
+		
+		return cuisineService.getAllCuisines();
 	}
 }

@@ -1,5 +1,7 @@
 package com.cuisineratingsystem.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,11 @@ public class CuisineService {
 		
 		public int updateRatingForCuisine(int id, float rating, int no_of_raters){
 			return cuisineRepository.updateRating(id, rating, no_of_raters);
+		}
+		
+		public List<Cuisine> getAllCuisines(){
+			
+			return cuisineRepository.findAll();
 		}
 		
 }

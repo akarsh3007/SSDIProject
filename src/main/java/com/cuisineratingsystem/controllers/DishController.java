@@ -1,5 +1,7 @@
 package com.cuisineratingsystem.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +30,11 @@ public class DishController {
 		
 		return dishService.updateRatingForDish(dish.getDish_ID(), dish.getRating(), dish.getNo_of_raters());
 	}
+	
+	@RequestMapping(path="/getalldishes", method=RequestMethod.GET)
+	public List<Dish> getAllDishes(){
+		
+		return dishService.getAllDishes();
+	} 
 	
 }
