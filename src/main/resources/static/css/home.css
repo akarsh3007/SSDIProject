@@ -6,7 +6,7 @@ a {
 .search-box-container {
     max-width: 80%;
     min-width: 30%;
-    margin-left: 10%;
+    margin-left: 20%;
     margin-right: 10%;
 }
 .input-search
@@ -17,4 +17,11 @@ a {
 
 .search-button {
     margin-top: -1% !important;
+}
+
+.search-result-content
+{
+	padding-left:2%;
+	padding-right:2%;
+	background-color:#101010;
 }

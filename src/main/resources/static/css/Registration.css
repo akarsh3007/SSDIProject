@@ -1,11 +1,11 @@
 @CHARSET "ISO-8859-1";
 
-.signup{
+.container.signup{
 	border: 1px solid grey;
 	border-radius : 10px;
 	margin : 0 auto !important;
 	max-width: 441px !important;
-	margin-top:71px !important;
+	padding-top:4%;
 }
 form{
 	margin-bottom : 6% !important;
