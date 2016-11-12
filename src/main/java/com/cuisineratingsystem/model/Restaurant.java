@@ -8,13 +8,15 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import java.io.Serializable;
 import java.util.*;
 
 @Entity
 @Table(name="restaurant")
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class)
 public class Restaurant implements Serializable {
 
 	/**
@@ -47,7 +49,7 @@ public class Restaurant implements Serializable {
 	}
 	
 	//@JsonManagedReference("restaurant-cuisine")
-	@JsonManagedReference
+	//@JsonManagedReference
 	@OneToMany(mappedBy="restaurant",targetEntity=Cuisine.class, cascade=CascadeType.PERSIST)
 	private List<Cuisine> cuisines;
 	

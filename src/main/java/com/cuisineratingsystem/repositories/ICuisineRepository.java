@@ -23,7 +23,7 @@ public interface ICuisineRepository extends JpaRepository<Cuisine, Integer>{
 	 @Query("select c from Cuisine c where c.cuisine_name like :cuisine_name")
 	 List<Cuisine> searchCuisine(@Param("cuisine_name")String cuisine_name);
 	 
-	 @Query("select c from Cuisine c where c.restaurant_ID =:restid")
+	 @Query("select c from Cuisine c where c.restaurant.restaurant_ID =:restid")
 	 List<Cuisine> getAllCuisineByRestId(@Param("restid")int restid);
 	 
 }

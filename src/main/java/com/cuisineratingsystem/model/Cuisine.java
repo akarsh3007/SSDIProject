@@ -15,10 +15,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name="cuisine")
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class)
 public class Cuisine implements Serializable{
 	
 	/**
@@ -40,24 +43,15 @@ public class Cuisine implements Serializable{
 	@Column(name="no_of_raters")
 	private int no_of_raters;
 	
-	@Column(name="restaurant_ID")
-	private int restaurant_ID;
-	
-	public int getRestaurant_ID() {
-		return restaurant_ID;
-	}
-	public void setRestaurant_ID(int restaurant_ID) {
-		this.restaurant_ID = restaurant_ID;
-	}
 	@ManyToOne(cascade=CascadeType.PERSIST)
-	@JoinColumn(name="restaurant_ID", insertable=false,updatable=false)
+	@JoinColumn(name="restaurant_ID")
 	private Restaurant restaurant;
 	
-	@JsonManagedReference
+	//@JsonManagedReference
 	@OneToMany(mappedBy="cuisine",targetEntity=Dish.class, cascade=CascadeType.PERSIST)
 	private List<Dish> dish;
 	
-	@JsonManagedReference
+	//@JsonManagedReference
 	@OneToMany(mappedBy="cuisine",targetEntity=CuisineReview.class, cascade=CascadeType.PERSIST)
 	private List<CuisineReview> cuisineReviews;
 
@@ -101,7 +95,7 @@ public class Cuisine implements Serializable{
 	}
 	
 	//@JsonBackReference("restaurant-cuisine")
-	@JsonBackReference
+	//@JsonBackReference
 	public Restaurant getRestaurant() {
 		return restaurant;
 	}

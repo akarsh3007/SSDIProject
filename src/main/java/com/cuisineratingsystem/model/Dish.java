@@ -15,10 +15,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name="dish")
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class)
 public class Dish implements Serializable {
 	
 	/**
@@ -47,7 +50,7 @@ public class Dish implements Serializable {
 	@JoinColumn(name ="cuisine_ID")
 	private Cuisine cuisine;
 	
-	@JsonManagedReference
+	//@JsonManagedReference
 	@OneToMany(mappedBy="dish",targetEntity=DishReview.class, cascade=CascadeType.PERSIST)
 	private List<DishReview> dishReviews;
 	
@@ -101,7 +104,7 @@ public class Dish implements Serializable {
 	}
 
 	//@JsonBackReference("cuisine-dish")
-	@JsonBackReference
+	//@JsonBackReference
 	public Cuisine getCuisine() {
 		return cuisine;
 	}
