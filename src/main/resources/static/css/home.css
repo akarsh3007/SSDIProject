@@ -1,0 +1,20 @@
+
+a {
+	cursor:pointer;
+}
+
+.search-box-container {
+    max-width: 80%;
+    min-width: 30%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.input-search
+{
+	max-width:50%;
+	
+}
+
+.search-button {
+    margin-top: -1% !important;
+}
