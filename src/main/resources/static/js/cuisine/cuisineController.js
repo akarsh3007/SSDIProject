@@ -1,20 +1,11 @@
 app.controller('cuisineController',function($scope,$timeout,$mdDialog,cuisineService,dishService){
 	$scope.cuisineRows={};
 	$scope.addRatiing = function(cuisine, newRating){
-		console.log('cuisine----------'+cuisine);
-		console.log('newRating----------'+newRating);
-		var total = (cuisine.rating * cuisine.no_of_raters);
-		console.log('cuisine.rating------'+cuisine.rating);
-		console.log('cuisine.no_of_raters------'+cuisine.no_of_raters);
-		console.log('total------'+total);
-		console.log('newRating------'+newRating);
-		total = total + Number(newRating);
-		console.log('total------'+total);
-		var totalRaters = Number(cuisine.no_of_raters) + 1;
-		console.log('total------'+total);
-		console.log('totalRaters------'+totalRaters);
-		var latestRating = total / totalRaters;
-		cuisineService.saveRatingFunction(cuisine.cuisine_ID,latestRating,totalRaters);
+		var totalc = (cuisine.rating * cuisine.no_of_raters);
+		totalc = totalc + Number(newRating);
+		var totalRatersc = Number(cuisine.no_of_raters) + 1;
+		var latestRatingc = totalc / totalRatersc;
+		cuisineService.saveRatingFunction(cuisine.cuisine_ID,latestRatingc,totalRatersc);
 	}
 	$scope.getCuisines = function(){
 		cuisineService.getCuisinesDishes().then(function (data, status, headers, config) {
@@ -34,18 +25,9 @@ app.controller('cuisineController',function($scope,$timeout,$mdDialog,cuisineSer
 	}
 	 
 	$scope.addRatingToDish = function(dish,selectedRating){
-		console.log('dish----------'+dish);
-		console.log('selectedRating----------'+selectedRating);
 		var total = (dish.rating * dish.no_of_raters);
-		console.log('dish.rating------'+dish.rating);
-		console.log('dish.no_of_raters------'+dish.no_of_raters);
-		console.log('total------'+total);
-		console.log('selectedRating------'+selectedRating);
 		total = total + Number(selectedRating);
-		console.log('total------'+total);
 		var totalRaters = Number(dish.no_of_raters) + 1;
-		console.log('total------'+total);
-		console.log('totalRaters------'+totalRaters);
 		var latestRating = total / totalRaters;
 		dishService.saveRatingForDish(dish,latestRating,totalRaters);
 	}
