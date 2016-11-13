@@ -20,12 +20,18 @@ body {
 .listdiv{
 width: 50% !important;
 margin-left : 25% !important;
+border :1px solid #b8c3dc;
 }
 </style>
 </head>
 <body ng-app="cuisinerating" ng-controller="cuisineController">
 <md-list ng-controller="listController" ng-cloak class="listdiv">
-<md-subheader class="md-no-sticky">Passage to India</md-subheader>
+<!-- <md-subheader class="md-no-sticky">Passage to India</md-subheader> -->
+<md-toolbar layout="row" class="md-hue-3">
+      <div class="md-toolbar-tools">
+        <span>Passage to India</span>
+      </div>
+    </md-toolbar>
 <div ng-repeat="cuisineRow in cuisineRows.cuisines">
   <md-list-item>
     <p><b>{{cuisineRow.cuisine_ID}}</b></p>
@@ -85,6 +91,7 @@ margin-left : 25% !important;
      </md-menu>
 	</md-list-item>
 </div>
+<md-divider></md-divider>
 </div>
  </md-list>
 
