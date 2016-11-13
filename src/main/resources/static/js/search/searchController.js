@@ -18,24 +18,27 @@ app.controller('searchController',function($scope,$mdDialog,searchService){
 		            });
 	}
 	
-	 $scope.showAdvanced = function(ev) {
-		    $mdDialog.show({
+	 $scope.showAdvanced = function(ev,cuisine) {
+		 $mdDialog.show({
 		      controller: DialogController,
 		      templateUrl: 'cuisineDetail.tmpl.html',
 		      parent: angular.element(document.body),
 		      targetEvent: ev,
 		      clickOutsideToClose:true,
-		      fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+		      locals:{
+		    	  cuisine:cuisine
+		      },
+		      fullscreen: $scope.customFullscreen 
 		    })
-		    .then(function(answer) {
-		      $scope.status = 'You said the information was "' + answer + '".';
-		    }, function() {
-		      $scope.status = 'You cancelled the dialog.';
-		    });
 		  };
 	
-	function DialogController($scope, $mdDialog) {
-	    $scope.hide = function() {
+	function DialogController($scope, $mdDialog,cuisine) {
+		$scope.currentCuisine = cuisine;
+		console.log($scope.currentCuisine);
+		console.log($scope.currentCuisine.restaurant.rest_name);
+		console.log($scope.currentCuisine.rating);
+		console.log($scope.currentCuisine.cuisineReviews);
+		$scope.hide = function() {
 	      $mdDialog.hide();
 	    };
 
