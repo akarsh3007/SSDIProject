@@ -15,22 +15,10 @@
       <div class="md-subhead">
       
       </div>
-      	<div class="md-subhead">
-            Rating :
-            <span class="label label-pill label-danger" ng-if="currentCuisine.rating <2.5">{{currentCuisine.rating}}</span>
-            <span class="label label-pill label-success" ng-if="currentCuisine.rating >=4">{{currentCuisine.rating}}</span>
-            <span class="label label-pill label-warning" ng-if="currentCuisine.rating >=2.5 && result.rating < 4 ">{{currentCuisine.rating}}</span>
-     </div>
      <md-input-container class="md-block" flex-gt-sm>
             <label>Rating</label>
-            <md-select ng-model="inputRating">
-              <md-option>1</md-option>
-              <md-option>2</md-option>
-              <md-option>3</md-option>
-              <md-option>4</md-option>
-              <md-option>5</md-option>
-            </md-select>
-          </md-input-container>
+  	<input ng-model="inputRating" type="number" max="5" min="1">
+      </md-input-container>
       </div>
       </md-dialog-content>
 <div ng-controller="cuisineController">

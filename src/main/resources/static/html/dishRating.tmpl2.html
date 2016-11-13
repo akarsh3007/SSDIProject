@@ -20,13 +20,7 @@
      </div>
      <md-input-container class="md-block" flex-gt-sm>
             <label>Rating</label>
-            <md-select ng-model="inputRating">
-              <md-option>1</md-option>
-              <md-option>2</md-option>
-              <md-option>3</md-option>
-              <md-option>4</md-option>
-              <md-option>5</md-option>
-            </md-select>
+            <input ng-model="inputRating" type="number" max="5" min="1">
           </md-input-container>
       </div>
       </md-dialog-content>
