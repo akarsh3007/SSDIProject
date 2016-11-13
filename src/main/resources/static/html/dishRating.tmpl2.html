@@ -1,0 +1,41 @@
+<md-dialog aria-label="Dish Detail">
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Dish: {{currentDish.dish_name}}</h2>
+        <span flex></span>
+       <!--  <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button> -->
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content">
+      	<div class="md-subhead">
+            Rating : 
+            <span class="label label-pill label-danger" ng-if="result.rating <2.5">{{currentDish.rating}}</span>
+            <span class="label label-pill label-success" ng-if="result.rating >=4">{{currentDish.rating}}</span>
+            <span class="label label-pill label-warning" ng-if="result.rating >=2.5 && result.rating < 4 ">{{currentDish.rating}}</span>
+     </div>
+     <md-input-container class="md-block" flex-gt-sm>
+            <label>Rating</label>
+            <md-select ng-model="inputRating">
+              <md-option>1</md-option>
+              <md-option>2</md-option>
+              <md-option>3</md-option>
+              <md-option>4</md-option>
+              <md-option>5</md-option>
+            </md-select>
+          </md-input-container>
+      </div>
+      </md-dialog-content>
+	<div ng-controller="cuisineController">
+    <md-dialog-actions layout="row">
+      <md-button ng-click="addRatingToDish(currentDish,inputRating)">
+        Save
+      </md-button>
+    </md-dialog-actions>
+    </div>
+  </form>
+</md-dialog>
