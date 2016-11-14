@@ -1,5 +1,5 @@
 app.controller('cuisineController',function($scope,$timeout,$mdDialog,cuisineService,dishService){
-	$scope.cuisineRows={};
+	$scope.restaurantDetail={};
 	$scope.addRatiing = function(cuisine, newRating){
 		var totalc = (cuisine.rating * cuisine.no_of_raters);
 		totalc = totalc + Number(newRating);
@@ -8,9 +8,10 @@ app.controller('cuisineController',function($scope,$timeout,$mdDialog,cuisineSer
 		cuisineService.saveRatingFunction(cuisine.cuisine_ID,latestRatingc,totalRatersc);
 	}
 	$scope.getCuisines = function(){
-		cuisineService.getCuisinesDishes().then(function (data, status, headers, config) {
-			$scope.cuisineRows=data.data;
-			console.log('cuisines------------'+$scope.cuisineRows);
+		var id = cuisineService.GetQueryStringParameter("id");
+		cuisineService.getCuisinesDishes(id).then(function (data, status, headers, config) {
+			$scope.restaurantDetail=data.data;
+			console.log($scope.restaurantDetail);
         },
         function (data, status, headers, config) {
             console.log("Error " + status);

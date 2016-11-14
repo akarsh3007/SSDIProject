@@ -77,7 +77,9 @@ body {
 			<div class="search-result-row" ng-repeat="result in cuisineSearchResult">
 				<div flex-xs flex-gt="50" layout="column" class="card-container">
 					<md-card> <md-card-title> <md-card-title-text>
-					<span class="md-headline">{{result.restaurant.rest_name}}</span> <span
+					<span class="md-headline"><a href="/html/RestaurantDetails.html?id={{result.restaurant.restaurant_ID}}">
+					{{result.restaurant.rest_name}}</a>
+					</span> <span
 						class="md-subhead">Cuisine : {{result.cuisine_name}}</span> <span
 						class="md-subhead"> Rating : <span
 						class="label label-pill label-danger" ng-if="result.rating <2.5">{{result.rating}}</span>

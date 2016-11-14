@@ -5,7 +5,6 @@
 <link href="/css/bootstrap.min.css" rel="stylesheet" />
 <link href="/css/home.css" rel="stylesheet">
 <link href="/css/angular-material.min.css" rel="stylesheet">
-
 <link rel="stylesheet" type="text/css"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" />
 <link rel="stylesheet" type="text/css" href="/css/sweetalert.css"
@@ -25,21 +24,23 @@ border :1px solid #b8c3dc;
 </style>
 </head>
 <body ng-app="cuisinerating" ng-controller="cuisineController">
-<md-list ng-controller="listController" ng-cloak class="listdiv">
+<md-list  ng-cloak class="listdiv">
 <!-- <md-subheader class="md-no-sticky">Passage to India</md-subheader> -->
 <md-toolbar layout="row" class="md-hue-3">
       <div class="md-toolbar-tools">
-        <span>Passage to India</span>
+        <span>{{restaurantDetail.rest_name}}</span>
       </div>
     </md-toolbar>
-<div ng-repeat="cuisineRow in cuisineRows.cuisines">
+<div ng-repeat="cuisineRow in restaurantDetail.cuisines">
   <md-list-item>
-    <p><b>{{cuisineRow.cuisine_ID}}</b></p>
-	<p><b>{{cuisineRow.cuisine_name}}</b></p>
-	<p><span class="label label-pill label-danger">{{cuisineRow.rating}}</span></p>
+	<div class="col-sm-6"><b>{{cuisineRow.cuisine_name}}</b></div>
+	<div class="col-sm-6"><span class="label label-pill label-danger" ng-if="cuisineRow.rating <2.5">{{cuisineRow.rating}}</span>
+	   <span class="label label-pill label-success"	ng-if="cuisineRow.rating >=4">{{cuisineRow.rating}}</span> 
+	   <span class="label label-pill label-warning"	ng-if="cuisineRow.rating >=2.5 && cuisineRow.rating < 4 ">{{cuisineRow.rating}}</span>
+	</div>
     <md-menu class="md-secondary">
       <md-button class="md-icon-button">
-        <!-- <md-icon md-svg-icon="menu:message"></md-icon> -->
+        <i class="fa fa-bars" aria-hidden="true"></i>
       </md-button>
       <md-menu-content width="3">
         <md-menu-item>
@@ -63,12 +64,15 @@ border :1px solid #b8c3dc;
 	</md-list-item>
 	<div ng-repeat="dishRow in cuisineRow.dish">
   <md-list-item>
-    <p>{{dishRow.dish_ID}}</p>
-	<p>{{dishRow.dish_name}}</p>
-	<p><span class="label label-pill label-danger">{{dishRow.rating}}</span></p>
+	<div class="col-sm-6">{{dishRow.dish_name}}</div>
+	<div class="col-sm-6">
+	<span class="label label-pill label-danger" ng-if="dishRow.rating <2.5">{{cuisineRow.rating}}</span>
+	<span class="label label-pill label-success"	ng-if="dishRow.rating >=4">{{cuisineRow.rating}}</span> 
+	<span class="label label-pill label-warning"	ng-if="dishRow.rating >=2.5 && dishRow.rating < 4 ">{{cuisineRow.rating}}</span>
+	</div>
     <md-menu class="md-secondary">
       <md-button class="md-icon-button">
-        <!-- <md-icon md-svg-icon="menu:message"></md-icon> -->
+       <i class="fa fa-bars" aria-hidden="true"></i>
       </md-button>
       <md-menu-content width="3">
         <md-menu-item>
@@ -108,6 +112,5 @@ border :1px solid #b8c3dc;
 	<script src="/js/cuisine/cuisineController.js"></script>
 	<script src="/js/dish/dishService.js"></script>
 	<script src="/js/dish/dishService.js"></script>
-	<script src="/js/cuisine/listController.js"></script>
 </body>
 </html>

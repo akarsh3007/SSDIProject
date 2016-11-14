@@ -1,8 +1,9 @@
 app.service('cuisineService',function($http,$timeout){
 	
-	this.getCuisinesDishes = function(){
+	this.getCuisinesDishes = function(id){
+		var endPointUri = "http://localhost:8080/api/restaurants/"+id;
 		return $http({
-        	url: "http://localhost:8080/api/restaurants/1",
+        	url: endPointUri,
         	method: "GET",
           	headers: { "Accept": "application/json" },
     });
@@ -86,4 +87,15 @@ app.service('cuisineService',function($http,$timeout){
 						console.log("Error: " + response.data.message);
 				});
 	}
+	
+	 this.GetQueryStringParameter = function (paramToRetrieve) {
+	        var params =
+	        document.URL.split("?")[1].split("&");
+	        var strParams = "";
+	        for (var i = 0; i < params.length; i = i + 1) {
+	            var singleParam = params[i].split("=");
+	            if (singleParam[0] == paramToRetrieve)
+	                return singleParam[1];
+	        }
+	    };
 });
