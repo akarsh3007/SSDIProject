@@ -11,7 +11,9 @@ app.service('dishService',function($http){
 					'Content-Type' : 'application/json'
 				},
 				data : {
-					dish_ID : dish_ID
+					dish_ID : dish_ID,
+					rating : rating,
+					no_of_raters : no_of_raters
 				}
 		}
 
