@@ -144,7 +144,7 @@ app.controller('cuisineController',function($scope,$timeout,$mdDialog,cuisineSer
 			
 	function DialogController($scope,$mdDialog,cuisine) {
 		console.log("logging cuisine passed to modal");
-		$scope.CuisineReview = cuisine;
+		$scope.currentCuisine = cuisine;
 		$scope.newCuisineReview = {
 			    "cuisineCommentDesc": "",
 			    "cuisine": {"cuisine_ID": cuisine.cuisine_ID }
