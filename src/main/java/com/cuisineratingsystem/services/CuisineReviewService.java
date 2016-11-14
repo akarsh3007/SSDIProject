@@ -22,4 +22,9 @@ public class CuisineReviewService {
 				return true;
 		return false;
 	}
+	
+	public CuisineReview getCuisineReviewById(int id)
+	{
+		return cuisineReviewRepository.findOne(id);
+	}
 }

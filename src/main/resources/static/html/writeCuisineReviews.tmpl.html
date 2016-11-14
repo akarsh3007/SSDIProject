@@ -21,14 +21,14 @@
       <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm>
             <label>Review</label>
-            <input ng-model="newReview">
+            <input ng-model="newCuisineReview.cuisineCommentDesc">
           </md-input-container>
           </div>
                 </div>
       </md-dialog-content>
 <div ng-controller="cuisineController">
     <md-dialog-actions layout="row">
-      <md-button ng-click="saveCuisineReview(currentCuisine,newReview)">
+      <md-button ng-click="saveCuisineReview(newCuisineReview)">
         Add
       </md-button>
     </md-dialog-actions>

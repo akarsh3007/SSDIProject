@@ -1,5 +1,7 @@
 app.controller('cuisineController',function($scope,$timeout,$mdDialog,cuisineService,dishService){
 	$scope.restaurantDetail={};
+	
+	
 	$scope.addRatiing = function(cuisine, newRating){
 		var totalc = (cuisine.rating * cuisine.no_of_raters);
 		totalc = totalc + Number(newRating);
@@ -22,9 +24,25 @@ app.controller('cuisineController',function($scope,$timeout,$mdDialog,cuisineSer
 	$scope.getCuisines();
 	
 	
-	$scope.saveCuisineReview = function(cuisine, newReview){
-		console.log('newReview---------'+newReview)
-		cuisineService.saveReviewForCuisine(cuisine,newReview);
+	$scope.saveCuisineReview = function(cuisineReview){
+		console.log('newReview---------'+cuisineReview)
+		cuisineService.saveReviewForCuisine(cuisineReview).then(
+				function (data, status, headers, config) {    
+					if(data)
+						{
+							$scope.hide();
+							swal('Thanks for your review. Review Added.','','success');
+						}
+					else
+						{
+							$scope.hide();
+							swal('There was some error adding your review','','error');
+						}
+					
+	            },
+	            function (data, status, headers, config) {
+	                console.log("Error " + status);
+	            });
 	}
 	 
 	$scope.addRatingToDish = function(dish,selectedRating){
@@ -125,11 +143,14 @@ app.controller('cuisineController',function($scope,$timeout,$mdDialog,cuisineSer
 				  };
 			
 	function DialogController($scope,$mdDialog,cuisine) {
-		$scope.currentCuisine = cuisine;
-		console.log($scope.currentCuisine);
-		console.log($scope.currentCuisine.cuisine_ID);
-		console.log($scope.currentCuisine.rating);
-		console.log($scope.currentCuisine.num_of_raters);
+		console.log("logging cuisine passed to modal");
+		$scope.CuisineReview = cuisine;
+		$scope.newCuisineReview = {
+			    "cuisineCommentDesc": "",
+			    "cuisine": {"cuisine_ID": cuisine.cuisine_ID }
+		}
+		console.log("new comment :"+ $scope.newCuisineReview.cuisineCommentDesc);
+		console.log("cuisine id: "+ $scope.newCuisineReview.cuisine.cuisine_ID);
 		$scope.hide = function() {
 	      $mdDialog.hide();
 	    };

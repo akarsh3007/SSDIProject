@@ -3,6 +3,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,4 +29,13 @@ public class CuisineReviewController {
 		return cuisineReviewService.addReview(cuisineReview);
 		
 	}
+	
+	@RequestMapping(path="/getCuisineReview/{id}", method=RequestMethod.GET)
+	public CuisineReview addReview(@PathVariable("id") int id)
+	{
+		
+		return cuisineReviewService.getCuisineReviewById(id);
+		
+	}
+	
 }
