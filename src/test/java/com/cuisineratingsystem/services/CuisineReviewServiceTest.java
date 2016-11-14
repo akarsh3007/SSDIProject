@@ -25,7 +25,7 @@ public class CuisineReviewServiceTest {
 	
 	@Before
 	public void setUp() throws Exception{
-		Restaurant restaurant = new Restaurant();
+		Restaurant restaurant = new Restaurant(); 
 		restaurant.setRestaurant_ID(1);
 		restaurant.setRest_name("test name");
 		restaurant.setLatitude(11);

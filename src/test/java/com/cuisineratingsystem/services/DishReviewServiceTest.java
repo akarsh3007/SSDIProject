@@ -11,9 +11,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.cuisineratingsystem.CuisineratingsystemApplication;
 import com.cuisineratingsystem.model.Cuisine;
-import com.cuisineratingsystem.model.CuisineReview;
 import com.cuisineratingsystem.model.Dish;
-import com.cuisineratingsystem.model.DishReview;
+import com.cuisineratingsystem.model.DishReview; 
 import com.cuisineratingsystem.model.Restaurant;
 
 @RunWith(SpringJUnit4ClassRunner.class)

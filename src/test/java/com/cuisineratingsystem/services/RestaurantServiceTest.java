@@ -18,7 +18,7 @@ import com.cuisineratingsystem.services.RestaurantService;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = CuisineratingsystemApplication.class)
 public class RestaurantServiceTest {
-	
+	 
 	@Autowired
 	private RestaurantService restaurantService;
 	private Restaurant restaurant;
