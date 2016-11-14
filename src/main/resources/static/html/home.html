@@ -87,7 +87,7 @@ body {
 						ng-if="result.rating >=2.5 && result.rating < 4 ">{{result.rating}}</span>
 					</span> <span class="md-subhead">City : {{result.restaurant.city}}</span>
 					</md-card-title-text> </md-card-title> <md-card-actions layout="row" layout-align="center">
-					<md-button ng-click="showAdvanced($event,result)">View Cuisine
+					<md-button ng-click="showCuisineDetail($event,result)">View Cuisine
 					Detail</md-button></md-card-actions> </md-card>
 				</div>
 			</div>
@@ -95,7 +95,7 @@ body {
 
 			<div class="no-search-results" ng-if="cuisineSearchResult.length ===0">
 
-				There is no results from search, Search another cuisine or dish.</div>
+				There is no results from search, Search another cuisine.</div>
 		</div>
 		</md-content> </md-tab> <md-tab label="Search Dishes"> <md-content
 			class="md-padding">
@@ -108,43 +108,45 @@ body {
 				<span class="search-box-label"> <label class="input-search">Enter
 						Dish Name to search</label>
 				</span> 
-				<span class="search-box-input"><input ng-model=searchOption.searchToken> </md-input-container>
+				<span class="search-box-input"><input ng-model=dishSearchOption.dishSearchToken> </md-input-container>
 				</span>
 
 
 				<md-input-container class="md-block input-search" flex-gt-sm>
 				<md-button class="md-raised md-primary search-button"
-					ng-click="searchCuisine(searchOption.searchToken)"> <i
+					ng-click="searchDish(dishSearchOption.dishSearchToken)"> <i
 					class="fa fa-search" aria-hidden="true"></i> </md-button> </md-input-container>
 
 			</div>
 
 			<md-content class="md-padding search-result-content"
-				layout-xs="column" layout="row" ng-if="SearchResult.length >0">
+				layout-xs="column" layout="row" ng-if="dishSearchResult.length >0">
 
 
-			<div class="search-result-row" ng-repeat="result in SearchResult">
+			<div class="search-result-row" ng-repeat="result in dishSearchResult">
 				<div flex-xs flex-gt="50" layout="column" class="card-container">
 					<md-card> <md-card-title> <md-card-title-text>
-					<span class="md-headline">{{result.restaurant.rest_name}}</span> <span
-						class="md-subhead">Cuisine : {{result.cuisine_name}}</span> <span
+					<span class="md-headline">{{result.cuisine.restaurant.rest_name}}</span> <span
+						class="md-subhead">Cuisine : {{result.cuisine.cuisine_name}}</span>
+						<span
+						class="md-subhead">Dish : {{result.dish_name}}</span> <span
 						class="md-subhead"> Rating : <span
 						class="label label-pill label-danger" ng-if="result.rating <2.5">{{result.rating}}</span>
 						<span class="label label-pill label-success"
 						ng-if="result.rating >=4">{{result.rating}}</span> <span
 						class="label label-pill label-warning"
 						ng-if="result.rating >=2.5 && result.rating < 4 ">{{result.rating}}</span>
-					</span> <span class="md-subhead">City : {{result.restaurant.city}}</span>
+					</span> <span class="md-subhead">City : {{result.cuisine.restaurant.city}}</span>
 					</md-card-title-text> </md-card-title> <md-card-actions layout="row" layout-align="center">
-					<md-button >View
+					<md-button ng-click="showDishDetail($event,result)">View
 					Dish Detail</md-button> </md-card-actions> </md-card>
 				</div>
 			</div>
 			</md-content>
 
-			<div class="no-search-results" ng-if="SearchResult.length ===0">
+			<div class="no-search-results" ng-if="dishSearchResult.length ===0">
 
-				There is no results from search, Search another cuisine or dish.</div>
+				There is no results from search, Search another dish.</div>
 		</div>
 		</md-content> </md-tab> </md-tabs> </md-content>
 	</div>

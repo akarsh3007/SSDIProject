@@ -2,7 +2,7 @@ app.controller('searchController',function($scope,$mdDialog,searchService){
 
 	$scope.cuisineSearchResult = {};
 	$scope.cuisineSearchOption = {};
-	
+	$scope.dishSearchOption = {};
 	$scope.searchCuisine = function(searchQuery)
 	{
 		searchService.searchCuisine(searchQuery).then(
@@ -16,7 +16,21 @@ app.controller('searchController',function($scope,$mdDialog,searchService){
 		            });
 	}
 	
-	 $scope.showAdvanced = function(ev,cuisine) {
+	$scope.searchDish = function(searchQuery)
+	{
+		searchService.searchDish(searchQuery).then(
+				function (data, status, headers, config) {
+		              
+						console.log(data);
+						$scope.dishSearchResult = data.data;
+						console.log(data.data);
+		            },
+		            function (data, status, headers, config) {
+		                console.log("Error " + status);
+		            });
+	}
+	
+	 $scope.showCuisineDetail = function(ev,cuisine) {
 		 $mdDialog.show({
 		      controller: DialogController,
 		      templateUrl: 'cuisineDetail.tmpl.html',
@@ -24,18 +38,28 @@ app.controller('searchController',function($scope,$mdDialog,searchService){
 		      targetEvent: ev,
 		      clickOutsideToClose:true,
 		      locals:{
-		    	  cuisine:cuisine
+		    	  item:cuisine
 		      },
 		      fullscreen: $scope.customFullscreen 
 		    })
 		  };
-	
-	function DialogController($scope, $mdDialog,cuisine) {
-		$scope.currentCuisine = cuisine;
-		console.log($scope.currentCuisine);
-		console.log($scope.currentCuisine.restaurant.rest_name);
-		console.log($scope.currentCuisine.rating);
-		console.log($scope.currentCuisine.cuisineReviews);
+		  $scope.showDishDetail = function(ev,dish) {
+				 $mdDialog.show({
+				      controller: DialogController,
+				      templateUrl: 'dishDetail.tmpl.html',
+				      parent: angular.element(document.body),
+				      targetEvent: ev,
+				      clickOutsideToClose:true,
+				      locals:{
+				    	  item:dish
+				      },
+				      fullscreen: $scope.customFullscreen 
+				    })
+				  };
+			
+	function DialogController($scope, $mdDialog,item) {
+		$scope.currentItem = item;
+		console.log($scope.currentItem);
 		$scope.hide = function() {
 	      $mdDialog.hide();
 	    };

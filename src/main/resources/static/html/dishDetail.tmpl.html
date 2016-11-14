@@ -2,7 +2,7 @@
   <form ng-cloak>
     <md-toolbar>
       <div class="md-toolbar-tools">
-        <h2>{{currentItem.restaurant.rest_name}}</h2>
+        <h2>{{currentItem.cuisine.restaurant.rest_name}}</h2>
         <span flex></span>
         <md-button class="md-icon-button" ng-click="cancel()">
           <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
@@ -13,8 +13,12 @@
     <md-dialog-content>
       <div class="md-dialog-content">
       <div class="md-subhead">
-      Cuisine: {{currentItem.cuisine_name}}
+      Cuisine: {{currentItem.cuisine.cuisine_name}}
       </div>
+      <div class="md-subhead">
+      Cuisine: {{currentItem.dish_name}}
+      </div>
+      
       	<div class="md-subhead">
             Rating :  {{currentItem.rating}}
             <span class="label label-pill label-danger" ng-if="result.rating <2.5">{{currentItem.rating}}</span>
@@ -23,9 +27,8 @@
      </div>
      <div class="reviews-container">
      Comments
-     <div ng-repeat="cuisineReview in currentItem.cuisineReviews">
-     	<div>{{cuisineReview.cuisineCommentDesc}}</div>
-     	 <md-divider ng-if="!$last"></md-divider>
+     <div ng-repeat="dishReview in currentItem.dishReviews">
+     	<div>{{dishReview.dishCommentDesc}}</div>
      </div>
      </div>
       </div>
