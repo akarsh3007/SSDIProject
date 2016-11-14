@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cuisineratingsystem.model.Cuisine;
@@ -37,4 +38,9 @@ public class DishController {
 		return dishService.getAllDishes();
 	} 
 	
+	@RequestMapping(path="/api/dish/search", method=RequestMethod.GET)
+	public List<Dish> searchCuisines(@RequestParam("searchToken") String searchToken){
+		
+		return dishService.searchDish(searchToken);
+	}
 }

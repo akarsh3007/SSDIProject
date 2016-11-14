@@ -6,8 +6,12 @@ a {
 .search-box-container {
     max-width: 80%;
     min-width: 30%;
-    margin-left: 20%;
+    margin-left: 30%;
     margin-right: 10%;
+}
+
+h1{
+	text-align:center;
 }
 .input-search
 {
@@ -24,4 +28,14 @@ a {
 	padding-left:2%;
 	padding-right:2%;
 	background-color:#101010;
+}
+
+.card-container
+{
+	min-width:330px;
+}
+
+.no-search-results
+{
+	text-align:center;
 }

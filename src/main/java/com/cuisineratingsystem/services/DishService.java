@@ -30,4 +30,9 @@ public class DishService {
 		
 		return dishRepository.findAll();
 	}
+	
+	public List<Dish> searchDish(String searchToken)
+	{
+		return dishRepository.searchDish(searchToken);
+	}
 }

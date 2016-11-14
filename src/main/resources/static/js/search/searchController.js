@@ -1,8 +1,7 @@
 app.controller('searchController',function($scope,$mdDialog,searchService){
 
-	$scope.SearchResult = {};
-	$scope.searchOption = {};
-	$scope.searchOption.selected = "true";
+	$scope.cuisineSearchResult = {};
+	$scope.cuisineSearchOption = {};
 	
 	$scope.searchCuisine = function(searchQuery)
 	{
@@ -10,8 +9,7 @@ app.controller('searchController',function($scope,$mdDialog,searchService){
 				function (data, status, headers, config) {
 		              
 						console.log(data);
-						$scope.SearchResult = data.data;
-		               
+						$scope.cuisineSearchResult = data.data;
 		            },
 		            function (data, status, headers, config) {
 		                console.log("Error " + status);
