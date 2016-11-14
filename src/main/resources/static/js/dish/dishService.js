@@ -1,7 +1,7 @@
 app.service('dishService',function($http){
 	
 	
-	this.saveRatingForDish = function(dish_ID,rating,no_of_raters){
+	this.saveRatingForDish = function(dish,rating,no_of_raters){
 
 		var req = {
 				method : 'POST',
@@ -10,7 +10,7 @@ app.service('dishService',function($http){
 					'Content-Type' : 'application/json'
 				},
 				data : {
-					dish_ID : dish_ID,
+					dish_ID : dish.dish_ID,
 					rating : rating,
 					no_of_raters : no_of_raters
 				}
