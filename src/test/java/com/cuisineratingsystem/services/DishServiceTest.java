@@ -56,7 +56,10 @@ public class DishServiceTest {
 		dish.setRating(5);
 		int num = dish.getNo_of_raters();
 		num = num + 1;
-		int result = dishService.updateRatingForDish(dish.getDish_ID(), dish.getRating(), num);
+		Dish updatedDish = dishService.updateRatingForDish(dish);
+		int result = 0;
+		if(updatedDish !=null)
+			result =1 ;
 		assertNotEquals(result,0);
 	}
 

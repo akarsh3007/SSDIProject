@@ -3,6 +3,7 @@ app.service('dishService',function($http){
 	
 	this.saveRatingForDish = function(dish_ID,rating,no_of_raters){
 
+		console.log(dish_ID);
 		var req = {
 				method : 'POST',
 				url : 'http://localhost:8080/updateDishRating',
@@ -10,9 +11,7 @@ app.service('dishService',function($http){
 					'Content-Type' : 'application/json'
 				},
 				data : {
-					dish_ID : dish_ID,
-					rating : rating,
-					no_of_raters : no_of_raters
+					dish_ID : dish_ID
 				}
 		}
 

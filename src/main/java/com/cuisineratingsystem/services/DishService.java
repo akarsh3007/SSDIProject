@@ -21,9 +21,9 @@ public class DishService {
 		this.dishRepository = dishRepository;
 	}
 	
-	public int updateRatingForDish(int id, float rating, int no_of_raters){
+	public Dish updateRatingForDish(Dish dish){
 		
-		return dishRepository.updateRating(id, rating, no_of_raters);
+		return dishRepository.save(dish);
 	}
 	
 	public List<Dish> getAllDishes(){

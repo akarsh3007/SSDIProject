@@ -6,6 +6,8 @@ app.controller('cuisineController',function($scope,$timeout,$mdDialog,cuisineSer
 		var totalRatersc = Number(cuisine.no_of_raters) + 1;
 		var latestRatingc = totalc / totalRatersc;
 		cuisineService.saveRatingFunction(cuisine.cuisine_ID,latestRatingc,totalRatersc);
+		$scope.hide();
+		
 	}
 	$scope.getCuisines = function(){
 		var id = cuisineService.GetQueryStringParameter("id");
@@ -31,6 +33,7 @@ app.controller('cuisineController',function($scope,$timeout,$mdDialog,cuisineSer
 		var totalRaters = Number(dish.no_of_raters) + 1;
 		var latestRating = total / totalRaters;
 		dishService.saveRatingForDish(dish,latestRating,totalRaters);
+		$scope.hide();
 	}
 	
 	$scope.saveDishReview = function(dish, newDishReview){
