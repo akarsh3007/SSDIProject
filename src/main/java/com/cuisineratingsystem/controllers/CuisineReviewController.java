@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cuisineratingsystem.Constants;
 import com.cuisineratingsystem.model.Cuisine;
 import com.cuisineratingsystem.model.CuisineReview;
 import com.cuisineratingsystem.services.CuisineReviewService;
@@ -22,7 +23,7 @@ public class CuisineReviewController {
 		this.cuisineReviewService = cuisineReviewService;
 	}
 	
-	@RequestMapping(path="/addCuisineReview", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(path=Constants.APIPath.CuisineReview.AddCuisineReview, method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
 	public boolean addReview(@RequestBody CuisineReview cuisineReview, HttpServletRequest request)
 	{
 		
@@ -30,7 +31,7 @@ public class CuisineReviewController {
 		
 	}
 	
-	@RequestMapping(path="/getCuisineReview/{id}", method=RequestMethod.GET)
+	@RequestMapping(path=Constants.APIPath.CuisineReview.GetCuisineReviewById, method=RequestMethod.GET)
 	public CuisineReview addReview(@PathVariable("id") int id)
 	{
 		

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cuisineratingsystem.Constants;
 import com.cuisineratingsystem.model.Cuisine;
 import com.cuisineratingsystem.model.Dish;
 import com.cuisineratingsystem.services.DishService;
@@ -26,19 +27,19 @@ public class DishController {
 		this.dishService = dishService;
 	}
 	
-	@RequestMapping(path="/updateDishRating", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(path=Constants.APIPath.Dish.UpdateDishRating, method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
 	public Dish updateRatingForDish(@RequestBody Dish dish, HttpServletRequest request){
 		
 		return dishService.updateRatingForDish(dish);
 	}
 	
-	@RequestMapping(path="/getalldishes", method=RequestMethod.GET)
+	@RequestMapping(path=Constants.APIPath.Dish.GetAllDishes, method=RequestMethod.GET)
 	public List<Dish> getAllDishes(){
 		
 		return dishService.getAllDishes();
 	} 
 	
-	@RequestMapping(path="/api/dish/search", method=RequestMethod.GET)
+	@RequestMapping(path=Constants.APIPath.Dish.CuisineSearch, method=RequestMethod.GET)
 	public List<Dish> searchCuisines(@RequestParam("searchToken") String searchToken){
 		
 		return dishService.searchDish(searchToken);

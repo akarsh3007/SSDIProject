@@ -15,7 +15,7 @@ app.service('cuisineService',function($http,$timeout){
          console.log('no_of_raters---'+no_of_raters);
 		var req = {
 				method : 'POST',
-				url : 'http://localhost:8080/updateCuisineRating',
+				url : 'http://localhost:8080/api/cuisines/updatecuisinerating',
 				headers : {
 					'Content-Type' : 'application/json'
 				},
@@ -56,7 +56,7 @@ app.service('cuisineService',function($http,$timeout){
 	this.saveReviewForCuisine = function(cuisineReview){
 			
 		return $http({
-        	url: "http://localhost:8080/addCuisineReview",
+        	url: "http://localhost:8080/api/cuisinereview",
         	method: "POST",
         	data:cuisineReview,
         	headers: { "Accept": "application/json; odata=verbose" },

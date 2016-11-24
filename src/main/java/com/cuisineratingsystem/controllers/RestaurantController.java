@@ -25,13 +25,13 @@ public class RestaurantController {
 		this.restaurantService = restaurantService;
 	}
 	
-	@RequestMapping(path="/api/restaurants", method=RequestMethod.GET)
+	@RequestMapping(path=Constants.APIPath.Restaurant.GetAllRestaurants, method=RequestMethod.GET)
 	public List<Restaurant> getAllRestaurant(){
 		
 		return restaurantService.getAllRestaurant();
 	}
 	
-	@RequestMapping(path="/api/restaurants/{restid}", method=RequestMethod.GET)
+	@RequestMapping(path=Constants.APIPath.Restaurant.GetRestaurantById, method=RequestMethod.GET)
 	public Restaurant getRestaurantById(@PathVariable("restid") int restid){
 	
 		return restaurantService.getRestaurantById(restid);

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cuisineratingsystem.Constants;
 import com.cuisineratingsystem.model.Cuisine;
 import com.cuisineratingsystem.model.Restaurant;
 import com.cuisineratingsystem.services.CuisineService;
@@ -26,7 +27,7 @@ public class CuisineController {
 		this.cuisineService = cuisineService;
 	}
 	
-	@RequestMapping(path="/updateCuisineRating", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(path=Constants.APIPath.Cuisine.UpdateCuisineRating, method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
 	public int UpdateCusuineRating(@RequestBody Cuisine cuisine, HttpServletRequest request)
 	{
 		
@@ -34,25 +35,25 @@ public class CuisineController {
 		
 	}
 	
-	@RequestMapping(path="/api/cuisines", method=RequestMethod.GET)
+	@RequestMapping(path=Constants.APIPath.Cuisine.GetAllCuisines, method=RequestMethod.GET)
 	public List<Cuisine> getAllCuisines(){
 		
 		return cuisineService.getAllCuisines();
 	}
 	
-	@RequestMapping(path="/api/cuisines/{id}", method=RequestMethod.GET)
+	@RequestMapping(path=Constants.APIPath.Cuisine.GetCuisineById, method=RequestMethod.GET)
 	public Cuisine getCuisineById(@PathVariable int id){
 		
 		return cuisineService.getCuisineById(id);
 	}
 	
-	@RequestMapping(path="/api/cuisines/search", method=RequestMethod.GET)
+	@RequestMapping(path=Constants.APIPath.Cuisine.CuisineSearch, method=RequestMethod.GET)
 	public List<Cuisine> searchCuisines(@RequestParam("searchToken") String searchToken){
 		
 		return cuisineService.searchCuisines(searchToken);
 	}
 	
-	@RequestMapping(path="/api/cuisines/restaurants/{restid}", method=RequestMethod.GET)
+	@RequestMapping(path=Constants.APIPath.Cuisine.GetAllCuisinesByRestaurantId, method=RequestMethod.GET)
 	public List<Cuisine> getAllCuisineByRestId(@PathVariable("restid") int restid){
 		
 		return cuisineService.getAllCuisinesByRestId(restid);

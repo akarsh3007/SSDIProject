@@ -6,7 +6,7 @@ app.service('dishService',function($http){
 		console.log(dish_ID);
 		var req = {
 				method : 'POST',
-				url : 'http://localhost:8080/updateDishRating',
+				url : 'http://localhost:8080/api/dishes/updatedishrating',
 				headers : {
 					'Content-Type' : 'application/json'
 				},
@@ -45,7 +45,7 @@ app.service('dishService',function($http){
 		
 		var req = {
 				method : 'POST',
-				url : 'http://localhost:8080/addDishReview',
+				url : 'http://localhost:8080/api/dishreview',
 				headers : {
 					'Content-Type' : 'application/json'
 				},

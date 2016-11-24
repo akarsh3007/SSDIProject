@@ -2,8 +2,13 @@ package com.cuisineratingsystem;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import static com.stormpath.spring.config.StormpathWebSecurityConfigurer.stormpath;
 
 
 @EnableJpaRepositories("com.cuisineratingsystem.repositories")
@@ -13,8 +18,18 @@ public class CuisineratingsystemApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CuisineratingsystemApplication.class, args);
+		
 	}
 	
-	
+	@EnableWebSecurity
+	@Configuration
+	class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+	  @Override
+	  protected void configure(HttpSecurity http) throws Exception {
+		 http.apply(stormpath()).and().authorizeRequests().antMatchers("/","/css/**","/js/**","/fonts/**").permitAll()
+		 .and().authorizeRequests().antMatchers("/api/**").fullyAuthenticated();
+		  
+	  }
+	}
 	
 }

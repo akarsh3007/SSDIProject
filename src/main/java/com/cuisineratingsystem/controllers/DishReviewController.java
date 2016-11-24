@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cuisineratingsystem.Constants;
 import com.cuisineratingsystem.model.DishReview;
 import com.cuisineratingsystem.model.User;
 import com.cuisineratingsystem.services.DishReviewService;
@@ -23,7 +24,7 @@ public class DishReviewController {
 		this.dishReviewService = dishReviewService;
 	}
 	
-	@RequestMapping(path="/addDishReview", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(path=Constants.APIPath.DishReview.AddDishReview, method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
 	public boolean AddDishReview(@RequestBody DishReview dishreview, HttpServletRequest request){
 		
 		return dishReviewService.AddDishReview(dishreview);
