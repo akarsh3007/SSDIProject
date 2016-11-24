@@ -7,8 +7,28 @@ app.controller('cuisineController',function($scope,$timeout,$mdDialog,cuisineSer
 		totalc = totalc + Number(newRating);
 		var totalRatersc = Number(cuisine.no_of_raters) + 1;
 		var latestRatingc = totalc / totalRatersc;
-		cuisineService.saveRatingFunction(cuisine.cuisine_ID,latestRatingc,totalRatersc);
-		$scope.hide();
+		
+		cuisineService.saveRatingFunction(cuisine.cuisine_ID,latestRatingc,totalRatersc).then(
+				function (data, status, headers, config) {  
+					console.log("rating response");
+					console.log(data);
+					if(data)
+						{
+							$scope.hide();
+							cuisine.rating = latestRatingc;
+							cuisine.no_of_raters = totalRatersc;
+							swal('Thanks for your Rating. Rating Added.','','success');
+						}
+					else
+						{
+							$scope.hide();
+							swal('There was some error adding your rating','','error');
+						}
+					
+	            },
+	            function (data, status, headers, config) {
+	                console.log("Error " + status);
+	            });
 		
 	}
 	$scope.getCuisines = function(){
@@ -50,7 +70,28 @@ app.controller('cuisineController',function($scope,$timeout,$mdDialog,cuisineSer
 		total = total + Number(selectedRating);
 		var totalRaters = Number(dish.no_of_raters) + 1;
 		var latestRating = total / totalRaters;
-		dishService.saveRatingForDish(dish,latestRating,totalRaters);
+		dishService.saveRatingForDish(dish,latestRating,totalRaters).then(
+				function (data, status, headers, config) {  
+					console.log("rating response");
+					console.log(data);
+					if(data)
+						{
+							$scope.hide();
+							dish.rating = latestRating;
+							dish.no_of_raters = totalRaters;
+							swal('Thanks for your Rating. Rating Added.','','success');
+						}
+					else
+						{
+							$scope.hide();
+							swal('There was some error adding your rating','','error');
+						}
+					
+	            },
+	            function (data, status, headers, config) {
+	                console.log("Error " + status);
+	            });
+	;
 		$scope.hide();
 	}
 	

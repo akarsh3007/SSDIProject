@@ -28,7 +28,7 @@ public class DishController {
 	}
 	
 	@RequestMapping(path=Constants.APIPath.Dish.UpdateDishRating, method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
-	public Dish updateRatingForDish(@RequestBody Dish dish, HttpServletRequest request){
+	public int updateRatingForDish(@RequestBody Dish dish, HttpServletRequest request){
 		
 		return dishService.updateRatingForDish(dish);
 	}
