@@ -20,6 +20,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.cuisineratingsystem.Constants;
 import com.cuisineratingsystem.model.User;
 import com.cuisineratingsystem.services.UserService;
+import com.stormpath.sdk.account.Account;
+import com.stormpath.sdk.servlet.account.AccountResolver;
 
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -88,7 +90,7 @@ public class AccountController {
 	        }
 	 }
 	 
-	 @RequestMapping(path="/currentuser", method=RequestMethod.GET)
+	 @RequestMapping(path="/loggedinuser", method=RequestMethod.GET)
 	 public User getLoggedInUser(HttpSession userSession, HttpServletRequest request )
 	 {
 		userSession = request.getSession();
@@ -106,10 +108,22 @@ public class AccountController {
 		return null;
 	 }
 	 
-	 /*@RequestMapping(value = "/login", method = RequestMethod.GET)
-	    public ModelAndView getLoginPage(@RequestParam Optional<String> error) {
-	        return new ModelAndView("login", "error", error);
-	    }
-	 */
+	 
+	 @RequestMapping(path="/currentuser", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	 public User geCurrentInUser(HttpServletRequest request )
+	 {
+		 if (AccountResolver.INSTANCE.hasAccount(request)) {
+
+			    //a known user has authenticated previously - get the user identity:
+			    Account account = AccountResolver.INSTANCE.getRequiredAccount(request);
+
+			    User currentuser = new User();
+			    currentuser.setFirstName(account.getFullName());
+			    currentuser.setEmail(account.getEmail());
+			    return currentuser;
+			}
+		return null;
+	 }
+	 
 
 }
