@@ -2,6 +2,7 @@ package com.cuisineratingsystem.repositories;
 
 import java.util.List;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -25,5 +26,8 @@ public interface ICuisineRepository extends JpaRepository<Cuisine, Integer>{
 	 
 	 @Query("select c from Cuisine c where c.restaurant.restaurant_ID =:restid")
 	 List<Cuisine> getAllCuisineByRestId(@Param("restid")int restid);
+	 
+	 @Query("select cuisine_ID,rating,no_of_raters,cuisine_name from Cuisine where rating > 3 order by rating DESC, no_of_raters DESC")
+	 List<Cuisine> getTrendingCuisines(Pageable pageable);
 	 
 }

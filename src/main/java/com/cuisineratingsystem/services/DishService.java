@@ -3,6 +3,7 @@ package com.cuisineratingsystem.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -34,5 +35,9 @@ public class DishService {
 	public List<Dish> searchDish(String searchToken)
 	{
 		return dishRepository.searchDish(searchToken);
+	}
+	
+	public List<Dish> getTrendingDishes(){
+		return dishRepository.getTrendingDishes(new PageRequest(0,5));
 	}
 }

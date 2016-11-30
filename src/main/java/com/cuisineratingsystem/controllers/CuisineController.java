@@ -59,6 +59,10 @@ public class CuisineController {
 		return cuisineService.getAllCuisinesByRestId(restid);
 	}
 	
+	@RequestMapping(path=Constants.APIPath.Cuisine.GetTrendingCuisines, method=RequestMethod.GET)
+	public List<Cuisine> getTrendingCuisines(){
+		return cuisineService.getTrendingCuisines();
+	}
 	
 	
 }
