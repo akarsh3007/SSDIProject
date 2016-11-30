@@ -41,7 +41,7 @@ app.controller('cuisineController',function($scope,$timeout,$mdDialog,cuisineSer
             console.log("Error " + status);
         });
 	}
-	$scope.getCuisines();
+	//$scope.getCuisines();
 	
 	
 	$scope.saveCuisineReview = function(cuisineReview){
@@ -91,7 +91,6 @@ app.controller('cuisineController',function($scope,$timeout,$mdDialog,cuisineSer
 	            function (data, status, headers, config) {
 	                console.log("Error " + status);
 	            });
-	;
 		$scope.hide();
 	}
 	
@@ -215,4 +214,25 @@ app.controller('cuisineController',function($scope,$timeout,$mdDialog,cuisineSer
 	      $mdDialog.cancel();
 	    };
 	  }
+	
+	$scope.getTrendingCuisineList = function(){
+		console.log("function called");
+		cuisineService.getTrendingCuisines().then(
+				function (data, status, headers, config) {  
+					console.log("trending response");
+					console.log(data);
+					if(data)
+						{
+							
+						}
+					else
+						{
+							
+						}
+					
+	            },
+	            function (data, status, headers, config) {
+	                console.log("Error " + status);
+	            });
+	}
 });

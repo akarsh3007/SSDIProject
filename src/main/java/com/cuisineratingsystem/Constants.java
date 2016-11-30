@@ -27,6 +27,7 @@ public class Constants {
 			public static final String GetCuisineById = "/api/cuisines/{id}";
 			public static final String GetAllCuisinesByRestaurantId = "/api/cuisines/restaurants/{restid}";
 			public static final String UpdateCuisineRating = "/api/cuisines/updatecuisinerating";
+			public static final String GetTrendingCuisines = "/api/cuisines/gettrendingcuisines";
 		}
 		
 		public class Dish
@@ -36,6 +37,7 @@ public class Constants {
 			public static final String GetAllReviewsOfDish = "/api/cuisinereviews/{dishid}";
 			public static final String GetAllDishes = "/api/dishes";
 			public static final String UpdateDishRating = "/api/dishes/updatedishrating";
+			public static final String GetTrendingDishes = "/api/dishes/gettrendingdishes";
 		}
 		
 		public class CuisineReview

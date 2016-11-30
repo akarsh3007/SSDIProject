@@ -20,4 +20,24 @@ app.controller('dishController',function($scope,$timeout,dishService){
 	$scope.saveDishReview = function(){
 		dishService.saveReviewFunction($scope.dish_ID,$scope.commentBody);
 	}
+	
+	$scope.getTrendingDishesList = function(){
+		dishService.getTrendingDishes().then(
+				function (data, status, headers, config) {  
+					console.log("trending response");
+					console.log(data);
+					if(data)
+						{
+							
+						}
+					else
+						{
+							
+						}
+					
+	            },
+	            function (data, status, headers, config) {
+	                console.log("Error " + status);
+	            });
+	}
 });

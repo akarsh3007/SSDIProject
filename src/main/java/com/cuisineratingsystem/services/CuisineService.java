@@ -3,6 +3,7 @@ package com.cuisineratingsystem.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.cuisineratingsystem.model.Cuisine;
@@ -42,4 +43,7 @@ public class CuisineService {
 			return cuisineRepository.getAllCuisineByRestId(restid);
 		}
 		
+		public List<Cuisine> getTrendingCuisines(){
+			return cuisineRepository.getTrendingCuisines(new PageRequest(0,5));
+		}
 }

@@ -44,4 +44,9 @@ public class DishController {
 		
 		return dishService.searchDish(searchToken);
 	}
+	
+	@RequestMapping(path=Constants.APIPath.Dish.GetTrendingDishes, method=RequestMethod.GET)
+	public List<Dish> getTrendingCuisines(){
+		return dishService.getTrendingDishes();
+	}
 }

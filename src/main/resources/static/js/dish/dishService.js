@@ -55,5 +55,13 @@ app.service('dishService',function($http){
 
 
 	}
+	
+	this.getTrendingDishes = function(){
+		 return $http({
+			 	url: "http://localhost:8080/api/dishes/gettrendingdishes",
+	        	method: "GET",
+	          	headers: { "Accept": "application/json" }
+		});
+	 }
 		
 });
