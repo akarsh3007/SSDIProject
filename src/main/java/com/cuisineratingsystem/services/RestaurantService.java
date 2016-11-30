@@ -27,4 +27,9 @@ public class RestaurantService {
 		
 		return restaurantRepository.findOne(id);
 	}
+	
+	public List<Restaurant> searchRestaurant(String searchToken)
+	{
+		return restaurantRepository.searchRestaurant(searchToken);
+	}
 }

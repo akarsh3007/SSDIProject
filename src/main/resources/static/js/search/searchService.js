@@ -20,4 +20,13 @@ app.service('searchService',function($http){
 		});
 	}
 	
+	this.searchRestaurants = function(searchToken)
+	{
+		var endPointUrl = "http://localhost:8080/api/restaurants/search?searchToken=" + searchToken;
+		return $http({
+        	url: endPointUrl,
+        	method: "Get",
+        	headers: { "Accept": "application/json; odata=verbose" },
+		});
+	}
 });

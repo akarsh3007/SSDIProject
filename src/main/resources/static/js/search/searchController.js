@@ -30,6 +30,20 @@ app.controller('searchController',function($scope,$mdDialog,searchService){
 		            });
 	}
 	
+	$scope.searchRestaurants = function(searchQuery)
+	{
+		searchService.searchRestaurants(searchQuery).then(
+				function (data, status, headers, config) {
+		              
+						console.log(data);
+						$scope.RestaurantSearchResult = data.data;
+						console.log(data.data);
+		            },
+		            function (data, status, headers, config) {
+		                console.log("Error " + status);
+		            });
+	}
+	
 	 $scope.showCuisineDetail = function(ev,cuisine) {
 		 $mdDialog.show({
 		      controller: DialogController,

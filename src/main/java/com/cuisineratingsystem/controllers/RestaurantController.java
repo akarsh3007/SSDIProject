@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cuisineratingsystem.Constants;
@@ -35,6 +36,12 @@ public class RestaurantController {
 	public Restaurant getRestaurantById(@PathVariable("restid") int restid){
 	
 		return restaurantService.getRestaurantById(restid);
+	}
+	
+	@RequestMapping(path=Constants.APIPath.Restaurant.SearchRestaurants, method=RequestMethod.GET)
+	public List<Restaurant> searchRestaurant(@RequestParam("searchToken") String searchToken){
+		
+		return restaurantService.searchRestaurant(searchToken);
 	}
 
 }

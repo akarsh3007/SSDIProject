@@ -48,7 +48,46 @@ body {
 	<!-- /.container -->
 
 	<div ng-cloak>
+	
 		<md-content> <md-tabs md-dynamic-height md-border-bottom>
+		<md-tab label="Search Restaurants">
+		<h1 class="md-display-2">Search Restaurant</h1>
+		<div class="search-container container-fluid"
+			ng-controller="searchController" ng-cloak>
+
+			<div class="search-box-container" layout-gt-sm="row">
+				<md-input-container class="md-block input-search" flex-gt-sm>
+				<span class="search-box-label"> <label class="input-search">Enter Restaurant Name to search</label>
+				</span> 
+				<span class="search-box-input"><input ng-model=searchOption.searchToken> </md-input-container>
+				</span>
+				<md-input-container class="md-block input-search" flex-gt-sm>
+				<md-button class="md-raised md-primary search-button"
+					ng-click="searchRestaurants(searchOption.searchToken)"> <i
+					class="fa fa-search" aria-hidden="true"></i> </md-button> </md-input-container>
+			</div>
+
+		<md-content class="md-padding search-result-content"
+				layout-xs="column" layout="row" ng-if=RestaurantSearchResult.length >0">
+			<div class="search-result-row" ng-repeat="result in RestaurantSearchResult">
+				<div flex-xs flex-gt="50" layout="column" class="card-container">
+					<md-card> <md-card-title> <md-card-title-text>
+						<span class="md-headline"><a href="/html/RestaurantDetails.html?id={{result.restaurant_ID}}">
+						{{result.rest_name}}</a>
+						</span> 
+						<span class="md-subhead">City : {{result.city}}</span>
+						<span class="md-subhead">ZipCode : {{result.zipcode}}</span>
+						</md-card-title-text> </md-card-title>
+					</md-card>
+				</div>
+			</div>
+			</md-content>
+			<div class="no-search-results" ng-if="RestaurantSearchResult.length ===0">
+
+				There is no results from search, Search another Restaurant.
+			</div>
+		</div>			
+		</md-tab>
 		<md-tab label="Search Cuisines"> <md-content
 			class="md-padding">
 		<h1 class="md-display-2">Search Cuisines</h1>
@@ -61,14 +100,13 @@ body {
 				</span> 
 				<span class="search-box-input"><input ng-model=searchOption.searchToken> </md-input-container>
 				</span>
-
-
 				<md-input-container class="md-block input-search" flex-gt-sm>
 				<md-button class="md-raised md-primary search-button"
 					ng-click="searchCuisine(searchOption.searchToken)"> <i
 					class="fa fa-search" aria-hidden="true"></i> </md-button> </md-input-container>
-
 			</div>
+			
+			
 
 			<md-content class="md-padding search-result-content"
 				layout-xs="column" layout="row" ng-if="cuisineSearchResult.length >0">

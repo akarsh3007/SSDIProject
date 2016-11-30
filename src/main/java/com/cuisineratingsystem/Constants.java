@@ -16,6 +16,7 @@ public class Constants {
 		{
 			public static final String GetAllRestaurants = "/api/restaurants";
 			public static final String GetRestaurantById = "/api/restaurants/{restid}";
+			public static final String SearchRestaurants = "/api/restaurants/search";
 		}
 		
 		public class Cuisine
