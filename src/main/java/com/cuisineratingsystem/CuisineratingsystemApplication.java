@@ -26,7 +26,9 @@ public class CuisineratingsystemApplication {
 	class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	  @Override
 	  protected void configure(HttpSecurity http) throws Exception {
-		 http.apply(stormpath()).and().authorizeRequests().antMatchers("/","/css/**","/js/**","/fonts/**").permitAll()
+		 http.apply(stormpath()).and().authorizeRequests()
+		 .antMatchers("/","/css/**","/js/**","/fonts/**","/login/**","/register/**","/home/**","/search/**","/maps/**",
+			"/profile/**","/forgot-password/**","/change-password/**","/app.js","/app.css","/navbar/**","/spinner/**").permitAll()
 		 .and().authorizeRequests().antMatchers("/api/**").fullyAuthenticated();
 		  
 	  }
