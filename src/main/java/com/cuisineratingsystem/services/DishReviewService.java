@@ -29,4 +29,9 @@ public class DishReviewService {
 		return false;
 	}
 	
+	public DishReview getCuisineReviewById(int id)
+	{
+		return dishReviewRepository.findOne(id);
+	}
+	
 }

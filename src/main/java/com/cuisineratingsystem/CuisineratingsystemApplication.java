@@ -27,8 +27,9 @@ public class CuisineratingsystemApplication {
 	  @Override
 	  protected void configure(HttpSecurity http) throws Exception {
 		 http.apply(stormpath()).and().authorizeRequests()
-		 .antMatchers("/","/css/**","/js/**","/fonts/**","/login/**","/register/**","/home/**","/search/**","/maps/**",
-			"/profile/**","/forgot-password/**","/change-password/**","/app.js","/app.css","/navbar/**","/spinner/**").permitAll()
+		 .antMatchers("/","/html/**","/css/**","/js/**","/fonts/**","/login/**","/register/**","/home/**","/search/**","/maps/**",
+			"/profile/**","/verify-email/**","/forgot-password/**","/change-password/**","/restaurant/**","/trending/**",
+			"/app.js","/app.css","/navbar/**","/spinner/**").permitAll()
 		 .and().authorizeRequests().antMatchers("/api/**").fullyAuthenticated();
 		  
 	  }

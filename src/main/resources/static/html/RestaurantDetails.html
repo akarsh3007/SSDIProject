@@ -11,11 +11,6 @@
 	rel="stylesheet" />
 
 <style>
-body {
-	padding-top: 70px;
-	color:black;
-	/* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-}
 .listdiv{
 width: 50% !important;
 margin-left : 25% !important;
@@ -23,7 +18,7 @@ border :1px solid #b8c3dc;
 }
 </style>
 </head>
-<body ng-app="cuisinerating" ng-controller="cuisineController">
+<body  >
 <md-list  ng-cloak class="listdiv">
 <!-- <md-subheader class="md-no-sticky">Passage to India</md-subheader> -->
 <md-toolbar layout="row" class="md-hue-3">
@@ -87,7 +82,7 @@ border :1px solid #b8c3dc;
         </md-menu-item>
         <md-menu-divider></md-menu-divider>
         <md-menu-item>
-          <md-button ng-click="addDishReviews($event,dishRow)">
+          <md-button ng-click="addDishReviews($event,dishRow,cuisineRow.cuisine_ID)">
             Add reviews
           </md-button>
         </md-menu-item>
@@ -99,18 +94,18 @@ border :1px solid #b8c3dc;
 </div>
  </md-list>
 
-	<script src="/js/jquery.js"></script>
+	<!-- <script src="/js/jquery.js"></script> -->
 	<script src="/js/sweetalert.min.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
-	<script src="/js/angular.min.js" type="text/javascript"></script>
+	<!-- <script src="/js/angular.min.js" type="text/javascript"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
 	<script	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
-	<script src="/js/angular-material.min.js" type="text/javascript"></script>
-	<script src="/js/app.js" type="text/javascript"></script>
-	<script src="/js/cuisine/cuisineService.js"></script>
+	<script src="/js/angular-material.min.js" type="text/javascript"></script> -->
+	<!-- <script src="/js/app.js" type="text/javascript"></script> -->
+<!-- 	<script src="/js/cuisine/cuisineService.js"></script>
 	<script src="/js/cuisine/cuisineController.js"></script>
 	<script src="/js/dish/dishService.js"></script>
-	<script src="/js/dish/dishService.js"></script>
+	<script src="/js/dish/dishService.js"></script> -->
 </body>
 </html>

@@ -1,25 +1,5 @@
-<div class="row">
-<div class="col-sm-2">
-	<div ng-controller="cuisineController" ng-init="getTrendingCuisineList();">
-	<h4 class="trending"> TRENDING CUISINES</h4>
-	<div ng-repeat="trending in trendingCuisines">
-		<md-card>
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline smallfont">{{trending[0]}}</span>
-            <span class="md-subhead">{{trending[4]}}</span>
-            <span class="md-subhead">Rating : <span class="label label-pill label-success">{{trending[2]}}</span></span>
-          </md-card-title-text>
-           <md-card-title-media>
-            <div class="md-media-sm card-media"><img src="{{trending[5]}}"/></div>
-          </md-card-title-media>
-        </md-card-title>
-      </md-card>
-	</div>
-	</div>
-	</div>
-	<div class="col-sm-8">
-	<div > <!-- ng-cloak -->
+
+	<div  ng-cloak >
 	
 		<md-content> <md-tabs md-dynamic-height md-border-bottom>
 		<md-tab label="Search Restaurants">
@@ -44,7 +24,7 @@
 			<div class="search-result-row" ng-repeat="result in RestaurantSearchResult">
 				<div flex-xs flex-gt="50" layout="column" class="card-container">
 					<md-card> <md-card-title> <md-card-title-text>
-						<span class="md-headline"><a href="/html/RestaurantDetails.html?id={{result.restaurant_ID}}">
+						<span class="md-headline"><a ui-sref="restaurant({ restId: result.restaurant_ID })">
 						{{result.rest_name}}</a>
 						</span> 
 						<span class="md-subhead">City : {{result.city}}</span>
@@ -89,7 +69,7 @@
 			<div class="search-result-row" ng-repeat="result in cuisineSearchResult">
 				<div flex-xs flex-gt="50" layout="column" class="card-container">
 					<md-card> <md-card-title> <md-card-title-text>
-					<span class="md-headline"><a href="/html/RestaurantDetails.html?id={{result.restaurant.restaurant_ID}}">
+					<span class="md-headline"><a ui-sref="restaurant({ restId: result.restaurant.restaurant_ID })">
 					{{result.restaurant.rest_name}}</a>
 					</span> <span
 						class="md-subhead">Cuisine : {{result.cuisine_name}}</span> <span
@@ -165,23 +145,4 @@
 		</md-content> </md-tab> </md-tabs> </md-content>
 	</div>
 </div>
-<div class="col-sm-2">
-	<div ng-controller="dishController" ng-init="getTrendingDishesList();">
-	<h4 class="trending"> TRENDING DISHES</h4>
-	<div ng-repeat="trending in trendingdishes">
-		<md-card>
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline smallfont">{{trending[3]}}</span>
-            <span class="md-subhead">{{trending[4]}}</span>
-            <span class="md-subhead">Rating : <span class="label label-pill label-success">{{trending[1]}}</span></span>
-          </md-card-title-text>
-          <!-- <md-card-title-media>
-            <div class="md-media-sm card-media"></div>
-          </md-card-title-media> -->
-        </md-card-title>
-      </md-card>
-	</div>
-	</div>
-	</div>
-	</div>
+

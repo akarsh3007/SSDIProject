@@ -6,7 +6,7 @@ var app=angular.module('cuisinerating',
 		'stormpath.templates']).config(function ($stateProvider, $urlRouterProvider, $locationProvider,$sceProvider, STORMPATH_CONFIG) {
 		    $urlRouterProvider
 		      .otherwise('/');
-
+		    
 		    $locationProvider.html5Mode(true);
 		    $sceProvider.enabled(false);
 		    /*

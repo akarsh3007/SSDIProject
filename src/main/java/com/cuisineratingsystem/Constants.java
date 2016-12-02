@@ -49,6 +49,7 @@ public class Constants {
 		public class DishReview 
 		{
 			public static final String AddDishReview = "/api/dishreview";
+			public static final String GetDishReviewById = "api/dishreview/{id}";
 		}
 	}
 }

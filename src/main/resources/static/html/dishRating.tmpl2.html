@@ -24,9 +24,9 @@
           </md-input-container>
       </div>
       </md-dialog-content>
-	<div ng-controller="cuisineController">
+	<div >
     <md-dialog-actions layout="row">
-      <md-button ng-click="addRatingToDish(currentDish,inputRating)">
+      <md-button ng-click="currentDish.addRatingToDish(currentDish,inputRating)">
         Save
       </md-button>
     </md-dialog-actions>

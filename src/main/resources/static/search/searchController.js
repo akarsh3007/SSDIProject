@@ -3,6 +3,7 @@ app.controller('searchController',function($scope,$mdDialog,searchService,mapsSe
 	$scope.cuisineSearchResult = {};
 	$scope.cuisineSearchOption = {};
 	$scope.dishSearchOption = {};
+	$scope.rest_id = 1;
 	$scope.searchCuisine = function(searchQuery)
 	{
 		searchService.searchCuisine(searchQuery).then(
@@ -37,7 +38,6 @@ app.controller('searchController',function($scope,$mdDialog,searchService,mapsSe
 		              
 						console.log(data);
 						$scope.RestaurantSearchResult = data.data;
-						console.log(data.data);
 		            },
 		            function (data, status, headers, config) {
 		                console.log("Error " + status);
