@@ -27,7 +27,7 @@ public interface ICuisineRepository extends JpaRepository<Cuisine, Integer>{
 	 @Query("select c from Cuisine c where c.restaurant.restaurant_ID =:restid")
 	 List<Cuisine> getAllCuisineByRestId(@Param("restid")int restid);
 	 
-	 @Query("select cuisine_ID,rating,no_of_raters,cuisine_name from Cuisine where rating > 3 order by rating DESC, no_of_raters DESC")
+	 @Query("select c.cuisine_name, c.cuisine_ID, c.rating, c.no_of_raters, c.restaurant.rest_name, c.imageURL from Cuisine c where rating > 3 order by rating DESC, no_of_raters DESC")
 	 List<Cuisine> getTrendingCuisines(Pageable pageable);
 	 
 }

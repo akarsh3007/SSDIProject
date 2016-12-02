@@ -39,3 +39,12 @@ h1{
 {
 	text-align:center;
 }
+
+.trending{
+	font-size: 14px;
+	font-weight:bold;
+}
+.smallfont{
+	font-size : 14px !important;
+	font-weight:bold !important;
+}

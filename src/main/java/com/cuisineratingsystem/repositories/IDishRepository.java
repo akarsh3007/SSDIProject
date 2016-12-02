@@ -24,7 +24,7 @@ public interface IDishRepository extends JpaRepository<Dish, Integer> {
 	@Query("select c from Dish c where c.dish_name like :dish_name")
 	 List<Dish> searchDish(@Param("dish_name")String dish_name);
 	
-	 @Query("select dish_ID,rating,no_of_raters,dish_name from Dish where rating > 3 order by rating DESC, no_of_raters DESC")
+	 @Query("select d.dish_ID,d.rating,d.no_of_raters,d.dish_name, d.cuisine.restaurant.rest_name from Dish d where rating > 3 order by rating DESC, no_of_raters DESC")
 	 List<Dish> getTrendingDishes(Pageable pageable);
 
 }

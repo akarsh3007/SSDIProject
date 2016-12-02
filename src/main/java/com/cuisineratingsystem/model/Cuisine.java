@@ -43,6 +43,9 @@ public class Cuisine implements Serializable{
 	@Column(name="no_of_raters")
 	private int no_of_raters;
 	
+	@Column(name="imageURL")
+	private String imageURL;
+	
 	@ManyToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name="restaurant_ID")
 	private Restaurant restaurant;
@@ -101,5 +104,11 @@ public class Cuisine implements Serializable{
 	}
 	public void setRestaurant(Restaurant restaurant) {
 		this.restaurant = restaurant;
+	}
+	public String getImageURL() {
+		return imageURL;
+	}
+	public void setImageURL(String imageURL) {
+		this.imageURL = imageURL;
 	}
 }

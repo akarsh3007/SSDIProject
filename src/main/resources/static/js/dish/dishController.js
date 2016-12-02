@@ -28,7 +28,7 @@ app.controller('dishController',function($scope,$timeout,dishService){
 					console.log(data);
 					if(data)
 						{
-							
+							$scope.trendingdishes = data.data;
 						}
 					else
 						{

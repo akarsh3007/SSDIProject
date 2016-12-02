@@ -223,7 +223,7 @@ app.controller('cuisineController',function($scope,$timeout,$mdDialog,cuisineSer
 					console.log(data);
 					if(data)
 						{
-							
+							$scope.trendingCuisines = data.data;
 						}
 					else
 						{
