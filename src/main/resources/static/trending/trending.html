@@ -1,6 +1,6 @@
-<div class="row">
+<div class="row" ng-controller="trendingController">
 <div class="col-sm-2">
-	<div ng-controller="trendingController" ng-init="getTrendingCuisineList();">
+	<div  ng-init="getTrendingCuisineList();">
 	<h4 class="trending"> TRENDING CUISINES</h4>
 	<div ng-repeat="trending in trendingCuisines">
 		<md-card>
@@ -19,7 +19,7 @@
 	</div>
 	</div>
 <div class="col-sm-2">
-	<div ng-controller="trendingController" ng-init="getTrendingDishesList();">
+	<div  ng-init="getTrendingDishesList();">
 	<h4 class="trending"> TRENDING DISHES</h4>
 	<div ng-repeat="trending in trendingdishes">
 		<md-card>

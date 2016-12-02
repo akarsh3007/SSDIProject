@@ -1,3 +1,5 @@
+app.controller('trendingController',function($scope,cuisineService,dishService){
+
 	$scope.getTrendingCuisineList = function(){
 		console.log("function called");
 		cuisineService.getTrendingCuisines().then(
@@ -38,3 +40,5 @@
 	                console.log("Error " + status);
 	            });
 	}
+	
+});	
