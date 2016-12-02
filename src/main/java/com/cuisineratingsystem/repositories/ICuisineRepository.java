@@ -21,7 +21,7 @@ public interface ICuisineRepository extends JpaRepository<Cuisine, Integer>{
 	 @Query("UPDATE Cuisine c SET c.rating=:rating, c.no_of_raters=:no_of_raters WHERE c.cuisine_ID=:cuisine_ID")
 	 int updateRating(@Param("cuisine_ID") int cuisine_ID, @Param("rating") float rating, @Param("no_of_raters") int no_of_raters);
 	 
-	 @Query("select c from Cuisine c where c.cuisine_name like :cuisine_name")
+	 @Query("select c from Cuisine c where c.cuisine_name like %?1%")
 	 List<Cuisine> searchCuisine(@Param("cuisine_name")String cuisine_name);
 	 
 	 @Query("select c from Cuisine c where c.restaurant.restaurant_ID =:restid")

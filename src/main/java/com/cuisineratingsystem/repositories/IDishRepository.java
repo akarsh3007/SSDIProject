@@ -21,7 +21,7 @@ public interface IDishRepository extends JpaRepository<Dish, Integer> {
 	@Query("UPDATE Dish d SET d.rating=:rating, d.no_of_raters=:no_of_raters WHERE d.dish_ID=:id")
 	 int updateRating(@Param("id") int id, @Param("rating") float rating, @Param("no_of_raters") int no_of_raters);
 	
-	@Query("select c from Dish c where c.dish_name like :dish_name")
+	@Query("select c from Dish c where c.dish_name like %?1%")
 	 List<Dish> searchDish(@Param("dish_name")String dish_name);
 	
 	 @Query("select d.dish_ID,d.rating,d.no_of_raters,d.dish_name, d.cuisine.restaurant.rest_name from Dish d where rating > 3 order by rating DESC, no_of_raters DESC")
