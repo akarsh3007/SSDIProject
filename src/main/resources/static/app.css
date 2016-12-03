@@ -1,4 +1,7 @@
-
+span.navbar-icons-space
+{
+	padding-left:10px;
+}
 @media (min-width:961px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ 
 span.md-subhead.truncate.ng-binding {
   float:left;
@@ -6,6 +9,7 @@ span.md-subhead.truncate.ng-binding {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-transform: capitalize;
 }
 span.md-headline.truncate.ng-binding {
     float: left;
@@ -13,6 +17,7 @@ span.md-headline.truncate.ng-binding {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-transform: capitalize;
 }
 }
 @media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ 
@@ -23,6 +28,7 @@ span.md-subhead.truncate.ng-binding {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-transform: capitalize;
 }
 span.md-headline.truncate.ng-binding {
     float: left;
@@ -30,6 +36,7 @@ span.md-headline.truncate.ng-binding {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-transform: capitalize;
 }
 }
 @media (min-width:1281px) { /* hi-res laptops and desktops */ 
@@ -39,6 +46,7 @@ span.md-subhead.truncate.ng-binding {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-transform: capitalize;
   }
   span.md-headline.truncate.ng-binding {
     float: left;
@@ -46,6 +54,7 @@ span.md-subhead.truncate.ng-binding {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-transform: capitalize;
 }
 }
 
