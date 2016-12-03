@@ -29,9 +29,9 @@ border :1px solid #b8c3dc;
 <div ng-repeat="cuisineRow in restaurantDetail.cuisines">
   <md-list-item>
 	<div class="col-sm-6"><b>{{cuisineRow.cuisine_name}}</b></div>
-	<div class="col-sm-6"><span class="label label-pill label-danger" ng-if="cuisineRow.rating <2.5">{{cuisineRow.rating}}</span>
-	   <span class="label label-pill label-success"	ng-if="cuisineRow.rating >=4">{{cuisineRow.rating}}</span> 
-	   <span class="label label-pill label-warning"	ng-if="cuisineRow.rating >=2.5 && cuisineRow.rating < 4 ">{{cuisineRow.rating}}</span>
+	<div class="col-sm-6"><span class="label label-pill label-danger" ng-if="cuisineRow.rating <2.5">{{cuisineRow.rating | number: 2}}</span>
+	   <span class="label label-pill label-success"	ng-if="cuisineRow.rating >=4">{{cuisineRow.rating | number: 2}}</span> 
+	   <span class="label label-pill label-warning"	ng-if="cuisineRow.rating >=2.5 && cuisineRow.rating < 4 ">{{cuisineRow.rating | number: 2}}</span>
 	</div>
     <md-menu class="md-secondary">
       <md-button class="md-icon-button">
@@ -61,9 +61,9 @@ border :1px solid #b8c3dc;
   <md-list-item>
 	<div class="col-sm-6">{{dishRow.dish_name}}</div>
 	<div class="col-sm-6">
-	<span class="label label-pill label-danger" ng-if="dishRow.rating <2.5">{{dishRow.rating}}</span>
-	<span class="label label-pill label-success"	ng-if="dishRow.rating >=4">{{dishRow.rating}}</span> 
-	<span class="label label-pill label-warning"	ng-if="dishRow.rating >=2.5 && dishRow.rating < 4 ">{{dishRow.rating}}</span>
+	<span class="label label-pill label-danger" ng-if="dishRow.rating <2.5">{{dishRow.rating | number: 2}}</span>
+	<span class="label label-pill label-success"	ng-if="dishRow.rating >=4">{{dishRow.rating | number: 2}}</span> 
+	<span class="label label-pill label-warning"	ng-if="dishRow.rating >=2.5 && dishRow.rating < 4 ">{{dishRow.rating | number: 2}}</span>
 	</div>
     <md-menu class="md-secondary">
       <md-button class="md-icon-button">

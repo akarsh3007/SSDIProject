@@ -3,6 +3,9 @@ angular.module('cuisinerating')
     $stateProvider
       .state('search', {
         url: '/search',
+        sp: {
+            authenticate: true
+          },
         templateUrl: 'search/search.html'
       });
   });

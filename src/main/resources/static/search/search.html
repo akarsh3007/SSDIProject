@@ -74,11 +74,11 @@
 					</span> <span
 						class="md-subhead">Cuisine : {{result.cuisine_name}}</span> <span
 						class="md-subhead"> Rating : <span
-						class="label label-pill label-danger" ng-if="result.rating <2.5">{{result.rating}}</span>
+						class="label label-pill label-danger" ng-if="result.rating <2.5">{{result.rating | number: 2}}</span>
 						<span class="label label-pill label-success"
-						ng-if="result.rating >=4">{{result.rating}}</span> <span
+						ng-if="result.rating >=4">{{result.rating | number: 2}}</span> <span
 						class="label label-pill label-warning"
-						ng-if="result.rating >=2.5 && result.rating < 4 ">{{result.rating}}</span>
+						ng-if="result.rating >=2.5 && result.rating < 4 ">{{result.rating | number: 2}}</span>
 					</span> <span class="md-subhead">City : {{result.restaurant.city}}</span>
 					</md-card-title-text> </md-card-title> <md-card-actions layout="row" layout-align="center">
 					<md-button ng-click="showCuisineDetail($event,result)">View Cuisine
@@ -120,17 +120,19 @@
 			<div class="search-result-row" ng-repeat="result in dishSearchResult">
 				<div flex-xs flex-gt="50" layout="column" class="card-container">
 					<md-card> <md-card-title> <md-card-title-text>
-					<span class="md-headline">{{result.cuisine.restaurant.rest_name}}</span> <span
+					<span class="md-headline"><a ui-sref="restaurant({ restId: result.cuisine.restaurant.restaurant_ID })"> {{result.cuisine.restaurant.rest_name}}</a></span> <span
 						class="md-subhead">Cuisine : {{result.cuisine.cuisine_name}}</span>
 						<span
 						class="md-subhead">Dish : {{result.dish_name}}</span> <span
 						class="md-subhead"> Rating : <span
-						class="label label-pill label-danger" ng-if="result.rating <2.5">{{result.rating}}</span>
+						class="label label-pill label-danger" ng-if="result.rating <2.5">{{result.rating | number: 2}}</span>
 						<span class="label label-pill label-success"
-						ng-if="result.rating >=4">{{result.rating}}</span> <span
+						ng-if="result.rating >=4">{{result.rating | number: 2}}</span> <span
 						class="label label-pill label-warning"
-						ng-if="result.rating >=2.5 && result.rating < 4 ">{{result.rating}}</span>
-					</span> <span class="md-subhead">City : {{result.cuisine.restaurant.city}}</span>
+						ng-if="result.rating >=2.5 && result.rating < 4 ">{{result.rating | number: 2}}</span>
+					</span> 
+					<span class="md-subhead">Price : {{result.dishPrice | currency}}</span>
+					<span class="md-subhead">City : {{result.cuisine.restaurant.city}}</span>
 					</md-card-title-text> </md-card-title> <md-card-actions layout="row" layout-align="center">
 					<md-button ng-click="showDishDetail($event,result)">View
 					Dish Detail</md-button> </md-card-actions> </md-card>

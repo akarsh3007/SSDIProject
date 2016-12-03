@@ -17,21 +17,19 @@
 	<h4 class="trending"> TRENDING CUISINES</h4>
 	<md-content class="md-padding redContainer"
 				layout-xs="column" layout="row">
-	<div class="search-result-row" ng-repeat="trending in trendingCuisines">
-	<div flex-xs flex-gt="50" layout="column" class="card-container containerWidth">
-		<md-card>
+	<div flex-xs flex-gt-xs="50" layout="column" ng-repeat="trending in trendingCuisines">
+      <md-card>
+        <img ng-src="{{trending[5]}}" class="md-card-image" alt="Washed Out">
         <md-card-title>
           <md-card-title-text>
-            <span class="md-headline smallfont">{{trending[0]}}</span>
-            <span class="md-subhead">{{trending[4]}}</span>
-            <span class="md-subhead">Rating : <span class="label label-pill label-success">{{trending[2]}}</span></span>
+           <div><span class="md-headline truncate">{{trending[0]}}</span></div>
+           <div><span class="md-subhead truncate">{{trending[4]}}</span></div>
           </md-card-title-text>
-           <md-card-title-media>
-            <div class="md-media-sm card-media"><img src="{{trending[5]}}"/></div>
-          </md-card-title-media>
         </md-card-title>
+        <md-card-content>
+         Rating : <span class="label label-pill label-success">{{trending[2]}}</span>
+        </md-card-content>
       </md-card>
-	</div>
 	</div>
 	</md-content>
 	</div>
@@ -42,21 +40,19 @@
 	<h4 class="trending"> TRENDING DISHES</h4>
 	<md-content class="md-padding redContainer"
 				layout-xs="column" layout="row">
-	<div class="search-result-row" ng-repeat="trending in trendingdishes">
-	<div flex-xs flex-gt="50" layout="column" class="card-container containerWidth">
-		<md-card>
+	<div flex-xs flex-gt-xs="50" layout="column" ng-repeat="trending in trendingdishes">
+      <md-card>
+        <img ng-src="{{trending[5]}}" class="md-card-image" alt="Washed Out">
         <md-card-title>
           <md-card-title-text>
-            <span class="md-headline smallfont">{{trending[3]}}</span>
-            <span class="md-subhead">{{trending[4]}}</span>
-            <span class="md-subhead">Rating : <span class="label label-pill label-success">{{trending[1]}}</span></span>
+           <div><span class="md-headline truncate">{{trending[3]}}</span></div>
+           <div><span class="md-subhead truncate">{{trending[4]}}</span></div>
           </md-card-title-text>
-          <md-card-title-media>
-            <div class="md-media-sm card-media"></div>
-          </md-card-title-media>
         </md-card-title>
+        <md-card-content>
+         Rating : <span class="label label-pill label-success">{{trending[1]}}</span>
+        </md-card-content>
       </md-card>
-	</div>
 	</div>
 	</md-content>
 	</div>

@@ -1,3 +1,57 @@
+
+@media (min-width:961px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ 
+span.md-subhead.truncate.ng-binding {
+  float:left;
+  width: 16em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+span.md-headline.truncate.ng-binding {
+    float: left;
+    width: 11em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+}
+@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ 
+
+span.md-subhead.truncate.ng-binding {
+  float:left;
+  width: 14em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+span.md-headline.truncate.ng-binding {
+    float: left;
+    width: 9em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+}
+@media (min-width:1281px) { /* hi-res laptops and desktops */ 
+span.md-subhead.truncate.ng-binding {
+  float:left;
+  width: 12em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  }
+  span.md-headline.truncate.ng-binding {
+    float: left;
+    width: 7em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+}
+
+img.md-card-image {
+    height: 125px;
+}
 #circularG{
   position:relative;
   width:58px;

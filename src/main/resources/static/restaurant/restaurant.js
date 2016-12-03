@@ -5,6 +5,9 @@ angular.module('cuisinerating')
         url: '/restaurant/:restId',
         templateUrl: 'html/RestaurantDetails.html',
         controller: 'cuisineController',
+        sp: {
+            authenticate: true
+          },
         resolve:{
         	restaurant: function($stateParams,cuisineService)
         		{
