@@ -12,9 +12,13 @@
 
 <style>
 .listdiv{
-width: 50% !important;
-margin-left : 25% !important;
+width: 55% !important;
+margin-left : 22% !important;
 border :1px solid #b8c3dc;
+}
+
+md-dialog{
+min-width:551px;
 }
 </style>
 </head>
@@ -23,19 +27,24 @@ border :1px solid #b8c3dc;
 <!-- <md-subheader class="md-no-sticky">Passage to India</md-subheader> -->
 <md-toolbar layout="row" class="md-hue-3">
       <div class="md-toolbar-tools">
-        <span>{{restaurantDetail.rest_name}}</span>
+        <span class="md-headline">{{restaurantDetail.rest_name}}</span>
       </div>
     </md-toolbar>
+    <md-subheader class="md-no-sticky">Address : {{restaurantDetail.address}} {{restaurantDetail.city}}, {{restaurantDetail.zipcode}}<br/>
+    Contact : {{restaurantDetail.contact}} <br/>
+    Timing : {{restaurantDetail.openTime}}
+     </md-subheader>
 <div ng-repeat="cuisineRow in restaurantDetail.cuisines">
   <md-list-item>
-	<div class="col-sm-6"><b>{{cuisineRow.cuisine_name}}</b></div>
-	<div class="col-sm-6"><span class="label label-pill label-danger" ng-if="cuisineRow.rating <2.5">{{cuisineRow.rating | number: 2}}</span>
-	   <span class="label label-pill label-success"	ng-if="cuisineRow.rating >=4">{{cuisineRow.rating | number: 2}}</span> 
-	   <span class="label label-pill label-warning"	ng-if="cuisineRow.rating >=2.5 && cuisineRow.rating < 4 ">{{cuisineRow.rating | number: 2}}</span>
+	<div class="col-sm-8"><b>{{cuisineRow.cuisine_name}}</b></div>
+	<!-- <div class="col-sm-4"><b>{{cuisineRow.cuisine_name}}</b></div> -->
+	<div class="col-sm-4"><span class="label label-pill label-danger" ng-if="cuisineRow.rating <2.5" title="Rating">{{cuisineRow.rating | number: 2}}</span>
+	   <span class="label label-pill label-success"	ng-if="cuisineRow.rating >=4" title="Rating">{{cuisineRow.rating | number: 2}}</span> 
+	   <span class="label label-pill label-warning"	ng-if="cuisineRow.rating >=2.5 && cuisineRow.rating < 4" title="Rating">{{cuisineRow.rating | number: 2}}</span>
 	</div>
     <md-menu class="md-secondary">
       <md-button class="md-icon-button">
-        <i class="fa fa-bars" aria-hidden="true"></i>
+        <i class="fa fa-bars" aria-hidden="true" title="Actions"></i>
       </md-button>
       <md-menu-content width="3">
         <md-menu-item>
@@ -59,15 +68,16 @@ border :1px solid #b8c3dc;
 	</md-list-item>
 	<div ng-repeat="dishRow in cuisineRow.dish">
   <md-list-item>
-	<div class="col-sm-6">{{dishRow.dish_name}}</div>
-	<div class="col-sm-6">
-	<span class="label label-pill label-danger" ng-if="dishRow.rating <2.5">{{dishRow.rating | number: 2}}</span>
-	<span class="label label-pill label-success"	ng-if="dishRow.rating >=4">{{dishRow.rating | number: 2}}</span> 
-	<span class="label label-pill label-warning"	ng-if="dishRow.rating >=2.5 && dishRow.rating < 4 ">{{dishRow.rating | number: 2}}</span>
+	<div class="col-sm-4">{{dishRow.dish_name}}</div>
+	<div class="col-sm-4" title="Price">${{dishRow.dishPrice}}</div>
+	<div class="col-sm-4">
+	<span class="label label-pill label-danger" ng-if="dishRow.rating <2.5" title="Rating">{{dishRow.rating | number: 2}}</span>
+	<span class="label label-pill label-success" ng-if="dishRow.rating >=4" title="Rating">{{dishRow.rating | number: 2}}</span> 
+	<span class="label label-pill label-warning" ng-if="dishRow.rating >=2.5 && dishRow.rating < 4" title="Rating">{{dishRow.rating | number: 2}}</span>
 	</div>
     <md-menu class="md-secondary">
       <md-button class="md-icon-button">
-       <i class="fa fa-bars" aria-hidden="true"></i>
+       <i class="fa fa-bars" aria-hidden="true" title="Actions"></i>
       </md-button>
       <md-menu-content width="3">
         <md-menu-item>

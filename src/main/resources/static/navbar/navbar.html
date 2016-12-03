@@ -9,15 +9,14 @@
         <div id="navbar-collapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li ng-class="{active: isActive('/')}"><a href="/"><span class="glyphicon glyphicon-home"><span class="navbar-icons-space">Home<span></span></span></a></li>
-                <li if-user ng-class="{active: isActive('/profile')}">
-                    <a ui-sref="profile">Profile</a>
+                <li if-user ng-class="{active: isActive('/profile')}"><a ui-sref="profile"><span class="glyphicon glyphicon-user"><span class="navbar-icons-space">Profile</span></span></a>
                 </li>
                 <li if-user>
-                    <a href="/search">Search</a>
+                    <a href="/search"><span class="glyphicon glyphicon-search"><span class="navbar-icons-space">Search</span></span></a>
                 </li>
-                <li if-user>
+                <!-- <li if-user>
                     <a href="/trending">Trending</a>
-                </li>
+                </li> -->
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li  if-user>
