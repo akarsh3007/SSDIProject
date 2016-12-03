@@ -28,6 +28,9 @@ public class DishReview implements Serializable {
 
 	@Column(name = "dish_comment_desc")
 	private String dishCommentDesc;
+	
+	@Column(name="dish_comment_user")
+	private String userName;
 
 	@ManyToOne
 	@JoinColumn(name = "dish_ID")
@@ -59,6 +62,15 @@ public class DishReview implements Serializable {
 
 	public void setDish(Dish dish) {
 		this.dish = dish;
+	}
+	
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 }

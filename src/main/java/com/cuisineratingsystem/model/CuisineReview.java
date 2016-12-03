@@ -28,6 +28,9 @@ public class CuisineReview implements Serializable {
 
 	@Column(name = "cuisine_comment_desc")
 	private String cuisineCommentDesc;
+	
+	@Column(name="cuisine_comment_user")
+	private String userName;
 
 	@ManyToOne
 	@JoinColumn(name = "cuisine_ID", referencedColumnName = "cuisine_ID")
@@ -59,6 +62,14 @@ public class CuisineReview implements Serializable {
 
 	public void setCuisine(Cuisine cuisine) {
 		this.cuisine = cuisine;
+	}
+	
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 }

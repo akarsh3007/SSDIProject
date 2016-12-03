@@ -44,6 +44,16 @@ public class Restaurant implements Serializable {
 	@Column(name="zipcode")
 	private int zipcode;
 	
+	@Column(name="address")
+	private String address;
+	
+	
+	@Column(name="contact")
+	private String contact;
+	
+	@Column(name="open_time")
+	private String openTime;
+	
 	public int getRestaurant_ID() {
 		return restaurant_ID;
 	}
@@ -106,6 +116,29 @@ public class Restaurant implements Serializable {
 		this.zipcode = zipcode;
 	}
 	
-	
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getContact() {
+		return contact;
+	}
+
+	public void setContact(String contact) {
+		this.contact = contact;
+	}
+
+	public String getOpenTime() {
+		return openTime;
+	}
+
+	public void setOpenTime(String openTime) {
+		this.openTime = openTime;
+	}
+
 	
 }

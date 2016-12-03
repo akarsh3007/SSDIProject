@@ -14,8 +14,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.junit.Ignore;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -50,6 +53,12 @@ public class Dish implements Serializable {
 	@JoinColumn(name ="cuisine_ID")
 	private Cuisine cuisine;
 	
+	@Column(name="dish_Price")
+	private float dishPrice;
+	
+	@Column(name="imageURL")
+	private String imageURL;
+
 	//@JsonManagedReference
 	@OneToMany(mappedBy="dish",targetEntity=DishReview.class, cascade=CascadeType.PERSIST)
 	private List<DishReview> dishReviews;
@@ -111,5 +120,21 @@ public class Dish implements Serializable {
 
 	public void setCuisine(Cuisine cuisine) {
 		this.cuisine = cuisine;
+	}
+	
+	public float getDishPrice() {
+		return dishPrice;
+	}
+
+	public void setDishPrice(float dishPrice) {
+		this.dishPrice = dishPrice;
+	}
+	
+	public String getImageURL() {
+		return imageURL;
+	}
+
+	public void setImageURL(String imageURL) {
+		this.imageURL = imageURL;
 	}
 }
