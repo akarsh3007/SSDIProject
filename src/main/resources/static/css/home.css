@@ -48,3 +48,12 @@ h1{
 	font-size : 14px !important;
 	font-weight:bold !important;
 }
+.redContainer{
+	background-color:#a81e1e !important;
+}
+.containerWidth{
+	min-width:221px !important;
+}
+.homeContainer{
+	
+}
