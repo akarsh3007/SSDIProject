@@ -20,12 +20,12 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li  if-user>
-                <a >Welcome, {{user.fullName}}</a></li>
+                <a>Welcome, {{user.fullName}}</a></li>
                 <li if-not-user>
                     <a href="/login"><span class="glyphicon glyphicon-user"><span class="navbar-icons-space">Login</span></span></a>
                 </li>
                 <li if-user>
-                    <a href="/#/logout" sp-logout>Logout</a>
+                    <a href="/#/logout" sp-logout><span class="glyphicon glyphicon-log-out"><span class="navbar-icons-space">Logout</span></span></a>
                 </li>
                 
                 <li if-not-user>
