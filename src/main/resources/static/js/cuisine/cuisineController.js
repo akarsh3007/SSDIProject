@@ -51,7 +51,8 @@ app.controller('cuisineController',function($scope,$stateParams,$timeout,$mdDial
 				function (data, status, headers, config) {    
 					if(data)
 						{
-						 $mdDialog.hide();
+						 	$mdDialog.hide();
+						 	$scope.selectedCuisine.cuisineReviews.push(cuisineReview);
 							swal('Thanks for your review. Review Added.','','success');
 						}
 					else
@@ -101,7 +102,8 @@ app.controller('cuisineController',function($scope,$stateParams,$timeout,$mdDial
 					if(data)
 						{
 						 $mdDialog.hide();
-							swal('Thanks for your review. Review Added.','','success');
+						 $scope.selectedDish.dishReviews.push(newDishReview);
+						 swal('Thanks for your review. Review Added.','','success');
 						}
 					else
 						{
@@ -116,6 +118,7 @@ app.controller('cuisineController',function($scope,$stateParams,$timeout,$mdDial
 	}
 	
 	$scope.addCuisineReviews = function(ev,cuisine) {
+		$scope.selectedCuisine = cuisine ;
 		 $mdDialog.show({
 		      controller: DialogController,
 		      templateUrl: 'html/writeCuisineReviews.tmpl.html',
@@ -173,7 +176,8 @@ app.controller('cuisineController',function($scope,$stateParams,$timeout,$mdDial
 				  };
 
 			  $scope.addDishReviews = function(ev,dish,cuisineId) {
-					dish.cuisine_ID = cuisineId; 
+					dish.cuisine_ID = cuisineId;
+					$scope.selectedDish = dish ;
 				  $mdDialog.show({
 					      controller: dishDialogController,
 					      templateUrl: 'html/writeDishReviews.tmpl.html',
