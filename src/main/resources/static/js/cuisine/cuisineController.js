@@ -1,6 +1,6 @@
 app.controller('cuisineController',function($scope,$stateParams,$timeout,$mdDialog,cuisineService,dishService,restaurant){
 	$scope.restaurantDetail= restaurant.data;
-	$scope.currentUser=$scope.$root.user.fullName;
+	currentUser = $scope.$root.user.fullName;
 	
 		function addRating(cuisine, newRating){
 		var totalc = (cuisine.rating * cuisine.no_of_raters);
@@ -203,13 +203,13 @@ app.controller('cuisineController',function($scope,$stateParams,$timeout,$mdDial
 			
 	function DialogController($scope,$mdDialog,cuisine) {
 		console.log("logging cuisine passed to modal");
-		var userNm= $scope.currentUser;
+		
 		$scope.currentCuisine = cuisine;
 		$scope.currentCuisine.addRating = addRating;
 		$scope.currentCuisine.saveCuisineReview = saveCuisineReview;
 		$scope.newCuisineReview = {
 			    "cuisineCommentDesc": "",
-			    "userName": userNm,
+			    "userName": currentUser,
 			    "cuisine": {"cuisine_ID": cuisine.cuisine_ID }
 		}
 		console.log("new comment :"+ $scope.newCuisineReview.cuisineCommentDesc);
@@ -229,7 +229,7 @@ app.controller('cuisineController',function($scope,$stateParams,$timeout,$mdDial
 		$scope.currentDish.saveDishReview = saveDishReview;
 		$scope.newDishReview = {
 			    "dishCommentDesc": "",
-			    "userName": $scope.currentUser,
+			    "userName": currentUser,
 			    "dish": {"dish_ID": dish.dish_ID,
 			    	"cuisine": {"cuisine_ID": dish.cuisine_ID }}
 			    
