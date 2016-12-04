@@ -27,8 +27,11 @@
 						<span class="md-headline"><a ui-sref="restaurant({ restId: result.restaurant_ID })">
 						{{result.rest_name}}</a>
 						</span> 
+						<span class="md-subhead">Address : {{result.address}}</span>
 						<span class="md-subhead">City : {{result.city}}</span>
 						<span class="md-subhead">ZipCode : {{result.zipcode}}</span>
+						<span class="md-subhead">Contact : {{result.contact}}</span>
+						<span class="md-subhead">Timing : {{result.openTime}}</span>
 						</md-card-title-text> </md-card-title>
 						<md-button ng-click="showOnMap($event,result,result.rest_name,result.city,result.zipcode)">View on Map
 					</md-button>
