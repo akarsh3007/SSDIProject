@@ -1,37 +1,30 @@
 <md-dialog aria-label="Cuisine Detail">
-  <form ng-cloak>
+  <form name="commentForm" ng-cloak ng-submit="currentCuisine.saveCuisineReview(newCuisineReview)">
     <md-toolbar>
       <div class="md-toolbar-tools">
         <h2>Cuisine: {{currentCuisine.cuisine_name}}</h2>
         <span flex></span>
-       <!--  <md-button class="md-icon-button" ng-click="cancel()">
-          <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
-        </md-button> -->
+      <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon class="glyphicon glyphicon-remove" aria-label="Close dialog"></md-icon>
+        </md-button>
       </div>
     </md-toolbar>
 
     <md-dialog-content>
       <div class="md-dialog-content">
-     <div class="reviews-container">
-     Comments
-     <div ng-repeat="cuisineReview in currentCuisine.cuisineReviews">
-     	<div>{{currentCuisine.cuisineCommentDesc}}</div>
-     </div>
-     </div>
-      <div layout-gt-sm="row">
+      	<div class="md-subhead">
+        </div>
           <md-input-container class="md-block" flex-gt-sm>
-            <label>Review</label>
-            <input ng-model="newCuisineReview.cuisineCommentDesc">
+            <label>Review</label> 
+            <input ng-model="newCuisineReview.cuisineCommentDesc" name="newcomment" required>
+            <div ng-messages="commentForm.newcomment.$error">
+      			<div ng-message="required">This is required!</div>
+    		</div>
           </md-input-container>
           </div>
-                </div>
       </md-dialog-content>
-<div>
-    <md-dialog-actions layout="row">
-      <md-button ng-click="currentCuisine.saveCuisineReview(newCuisineReview)">
-        Add
-      </md-button>
+    <md-dialog-actions >
+      <input type="submit"  class="btn btn-success modal-comment-button" value="Save">
     </md-dialog-actions>
-   </div>
   </form>
 </md-dialog>

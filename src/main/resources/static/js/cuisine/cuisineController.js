@@ -2,6 +2,10 @@ app.controller('cuisineController',function($scope,$stateParams,$timeout,$mdDial
 	$scope.restaurantDetail= restaurant.data;
 	currentUser = $scope.$root.user.fullName;
 	
+	function closeModal()
+	{
+		$mdDialog.hide();
+	}
 		function addRating(cuisine, newRating){
 		var totalc = (cuisine.rating * cuisine.no_of_raters);
 		totalc = totalc + Number(newRating);
@@ -210,6 +214,7 @@ app.controller('cuisineController',function($scope,$stateParams,$timeout,$mdDial
 		
 		$scope.currentCuisine = cuisine;
 		$scope.currentCuisine.addRating = addRating;
+		$scope.currentCuisine.cancel = closeModal;
 		$scope.currentCuisine.saveCuisineReview = saveCuisineReview;
 		$scope.newCuisineReview = {
 			    "cuisineCommentDesc": "",
@@ -230,6 +235,7 @@ app.controller('cuisineController',function($scope,$stateParams,$timeout,$mdDial
 	function dishDialogController($scope, $mdDialog,dish) {
 		$scope.currentDish = dish;
 		$scope.currentDish.addRatingToDish = addRatingToDish;
+		$scope.currentDish.cancel = closeModal;
 		$scope.currentDish.saveDishReview = saveDishReview;
 		$scope.newDishReview = {
 			    "dishCommentDesc": "",

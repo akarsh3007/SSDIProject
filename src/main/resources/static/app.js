@@ -2,6 +2,7 @@ var app=angular.module('cuisinerating',
 		['ngMaterial',
 		'ui.router',
 		'ngSanitize',
+		'slick',
 		'stormpath',
 		'stormpath.templates']).config(function ($stateProvider, $urlRouterProvider, $locationProvider,$sceProvider, STORMPATH_CONFIG) {
 		    $urlRouterProvider
@@ -14,7 +15,7 @@ var app=angular.module('cuisinerating',
 		     most of our framework integrations are expecting JSON, so we need to manually set
 		     this.  JSON will be the default in the next major release of the Angular SDK.
 		    */
-		    
+		    STORMPATH_CONFIG.ENDPOINT_PREFIX = 'http://localhost:8080';
 		    STORMPATH_CONFIG.FORM_CONTENT_TYPE = 'application/json';
 		  })
 		  .run(function($stormpath,$rootScope,$state){
@@ -38,6 +39,6 @@ var app=angular.module('cuisinerating',
 		      login state
 		     */
 		    $rootScope.$on('$sessionEnd',function () {
-		      $state.transitionTo('home');
+		      $state.transitionTo('/home');
 		    });
 		  });

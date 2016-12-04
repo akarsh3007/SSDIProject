@@ -5,7 +5,7 @@
         <h2>{{currentItem.cuisine.restaurant.rest_name}}</h2>
         <span flex></span>
         <md-button class="md-icon-button" ng-click="cancel()">
-          <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+          <md-icon class="glyphicon glyphicon-remove" aria-label="Close dialog"></md-icon>
         </md-button>
       </div>
     </md-toolbar>
@@ -20,24 +20,18 @@
       </div>
       
       	<div class="md-subhead">
-            Rating :  {{currentItem.rating}}
-            <span class="label label-pill label-danger" ng-if="result.rating <2.5">{{currentItem.rating}}</span>
-            <span class="label label-pill label-success" ng-if="result.rating >=4">{{currentItem.rating}}</span>
-            <span class="label label-pill label-warning" ng-if="result.rating >=2.5 && result.rating < 4 ">{{currentItem.rating}}</span>
+            <span class="label label-pill label-danger" ng-if="currentItem.rating <2.5">{{currentItem.rating | number:2}}</span>
+            <span class="label label-pill label-success" ng-if="currentItem.rating >=4">{{currentItem.rating | number:2}}</span>
+            <span class="label label-pill label-warning" ng-if="currentItem.rating >=2.5 && currentItem.rating < 4 ">{{currentItem.rating | number:2}}</span>
      </div>
      <div class="reviews-container">
      Comments
      <div ng-repeat="dishReview in currentItem.dishReviews">
+     	<div>{{dishReview.userName}}</div>
      	<div>{{dishReview.dishCommentDesc}}</div>
      </div>
      </div>
       </div>
       </md-dialog-content>
-
-    <md-dialog-actions layout="row">
-      <md-button ng-click="cancel()">
-        Close
-      </md-button>
-    </md-dialog-actions>
   </form>
 </md-dialog>

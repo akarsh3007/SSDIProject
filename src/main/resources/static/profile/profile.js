@@ -17,36 +17,5 @@ angular.module('cuisinerating')
       });
   })
   .controller('ProfileCtrl', function ($scope, $http, $timeout, $user) {
-    $scope.saving = false;
-    $scope.saved = false;
-    $scope.error = null;
-    $scope.formModel = {
-      givenName: $scope.user.givenName,
-      surname: $scope.user.surname,
-      favoriteColor: $scope.user.customData.favoriteColor
-    };
-
-    $scope.submit = function() {
-      $scope.error = null;
-      $scope.saving = true;
-      $http.post('/profile',$scope.formModel)
-        .then(function(){
-          $scope.saved = true;
-          $user.get(true); // refresh the user context for the entire application
-          $timeout(function(){
-            $scope.saved = false;
-          },2000);
-        })
-        .catch(function(httpResponse){
-          $scope.error = httpResponse &&
-            httpResponse.data ? (
-              httpResponse.data.userMessage ||
-              httpResponse.data.message ||
-              'An error has occured'
-            ) : 'Server error';
-        })
-        .finally(function(){
-          $scope.saving = false;
-        });
-    };
+   $scope.user = $scope.$root.user;
   });

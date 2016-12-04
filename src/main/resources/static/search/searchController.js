@@ -71,9 +71,9 @@ app.controller('searchController',function($scope,$mdDialog,searchService,mapsSe
 				    })
 				  };
 			
-			$scope.showOnMap = function(ev,item) {
+			$scope.showOnMap = function(ev,item,rest_name,city,zipcode) {
 
-				var mapData = mapsService.createMapDataString(item.rest_name,item.city,item.zipcode);
+				var mapData = mapsService.createMapDataString(rest_name,city,zipcode);
 				console.log(mapData);
 				item.mapData = mapData;
 					$mdDialog.show({

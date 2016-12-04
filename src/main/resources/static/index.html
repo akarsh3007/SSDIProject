@@ -40,21 +40,18 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/slider.js"></script>
     
-	<script type="text/javascript">
- 	 
-	</script>
+    
 </head>
 
-<body ng-app="cuisinerating">
+<body ng-app="cuisinerating" >
 
 	<div if-user-state-unknown>
       <div ng-include="'spinner/spinner.html'"></div>
     </div>
  	<div if-user-state-known>
-      <div ng-include="'navbar/navbar.html'"></div>
-      <div ui-view=""></div>
+      <div ng-include="'navbar/navbar.html'" id="head-container"></div>
+      <div ui-view="" ></div>
     </div>
      	<script src="/js/angular.min.js" type="text/javascript"></script>
 	<script src="/js/angular.min.js" type="text/javascript"></script>
@@ -69,12 +66,14 @@
 		src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
 	<script
 		src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
-	
+	<!-- <script src="/js/slider.js"></script> -->
+    <script src="/js/slick.js" type="text/javascript"></script>
     <script src="/app.js" type="text/javascript"></script>
     <script src="/login/login.js" type="text/javascript"></script>
     <script src="/register/register.js" type="text/javascript"></script>
     <script src="/home/home.js" type="text/javascript"></script>
     <script src="/search/search.js" type="text/javascript"></script>
+    <script src="/profile/profile.js" type="text/javascript"></script>
     <script src="/forgot-password/forgot-password.js" type="text/javascript"></script>
     <script src="/verify-email/verify-email.js" type="text/javascript"></script>
     <script src="/change-password/change-password.js" type="text/javascript"></script>

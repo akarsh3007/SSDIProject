@@ -1,31 +1,35 @@
 <md-dialog aria-label="Cuisine Detail">
-  <form ng-cloak>
+  <form ng-cloak form="ratingForm" ng-submit="currentCuisine.addRating(currentCuisine,inputRating)">
     <md-toolbar>
       <div class="md-toolbar-tools">
         <h2>Cuisine: {{currentCuisine.cuisine_name}}</h2>
         <span flex></span>
-        <md-button class="md-icon-button" ng-click="cancel()">
-          <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+       <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon class="glyphicon glyphicon-remove" aria-label="Close dialog"></md-icon>
         </md-button>
       </div>
     </md-toolbar>
 
     <md-dialog-content>
       <div class="md-dialog-content">
-      <div class="md-subhead">
-      
-      </div>
+     <div class="md-subhead">
+            Rating : 
+            <span class="label label-pill label-danger" ng-if="currentCuisine.rating <2.5">{{currentCuisine.rating}}</span>
+            <span class="label label-pill label-success" ng-if="currentCuisine.rating >=4">{{currentCuisine.rating}}</span>
+            <span class="label label-pill label-warning" ng-if="currentCuisine.rating >=2.5 && currentCuisine.rating < 4 ">{{currentCuisine.rating}}</span>
+     </div>
      <md-input-container class="md-block" flex-gt-sm>
             <label>Rating</label>
-  	<input ng-model="inputRating" type="number" max="5" min="1">
+  	<input ng-model="inputRating" type="number" name="newrating" max="5" min="1" required>
+  		<div ng-messages="ratingForm.newrating.$error">
+      			<div ng-message="required">This is required!</div>
+    		</div>
       </md-input-container>
       </div>
       </md-dialog-content>
-<div >
-    <md-dialog-actions layout="row">
-      <md-button ng-click="currentCuisine.addRating(currentCuisine,inputRating)">
-        Save
-      </md-button>
+
+    <md-dialog-actions>
+      <input type="submit"  class="btn btn-success modal-comment-button" value="Save">
     </md-dialog-actions>
    </div>
   </form>

@@ -9,63 +9,74 @@
 			</div>
 		</div>
 		<!-- /.row -->
-	</div>	
+	</div>
 
-		<div ng-controller="trendingController"  if-user>
+	<slick   if-not-user autoplay=true autoplay-speed=2000 infinite=true slides-to-show=3 slides-to-scroll=1>
+		<div>
+			<img src="../css/Images/61121.jpg" width="300" height="300" />
+		</div>
+		<div>
+			<img src="../css/Images/61122.jpg" width="300" height="300" />
+		</div>
+		<div>
+			<img src="../css/Images/61123.jpg" width="300" height="300" />
+		</div>
+		<div>
+			<img src="../css/Images/61124.jpg" width="300" height="300" />
+		</div>
+		<div>
+			<img src="../css/Images/61125.png" width="300" height="300" />
+		</div>
+	</slick>
 
-	<div  ng-init="getTrendingCuisineList();">
-	<h4 class="trending"> TRENDING CUISINES</h4>
-	<md-content class="md-padding redContainer"
-				layout-xs="column" layout="row">
-	<div flex-xs flex-gt-xs="50" layout="column" ng-repeat="trending in trendingCuisines">
-      <md-card>
-        <img ng-src="{{trending[5]}}" class="md-card-image" alt="Washed Out">
-        <md-card-title>
-          <md-card-title-text>
-           <div><span class="md-headline truncate">{{trending[0]}}</span></div>
-           <div><span class="md-subhead truncate">{{trending[4]}}</span></div>
-          </md-card-title-text>
-        </md-card-title>
-        <md-card-content>
-         Rating : <span class="label label-pill label-success">{{trending[2]}}</span>
-        </md-card-content>
-      </md-card>
-	</div>
-	</md-content>
-	</div>
-	
 
-	<div  ng-init="getTrendingDishesList();">
-	
-	<h4 class="trending"> TRENDING DISHES</h4>
-	<md-content class="md-padding redContainer"
-				layout-xs="column" layout="row">
-	<div flex-xs flex-gt-xs="50" layout="column" ng-repeat="trending in trendingdishes">
-      <md-card>
-        <img ng-src="{{trending[5]}}" class="md-card-image" alt="Washed Out">
-        <md-card-title>
-          <md-card-title-text>
-           <div><span class="md-headline truncate">{{trending[3]}}</span></div>
-           <div><span class="md-subhead truncate">{{trending[4]}}</span></div>
-          </md-card-title-text>
-        </md-card-title>
-        <md-card-content>
-         Rating : <span class="label label-pill label-success">{{trending[1]}}</span>
-        </md-card-content>
-      </md-card>
+	<div ng-controller="trendingController" if-user>
+
+		<div ng-init="getTrendingCuisineList();">
+			<h4 class="trending">TRENDING CUISINES</h4>
+			<md-content class="md-padding redContainer" layout-xs="column"
+				layout="row">
+			<div flex-xs flex-gt-xs="50" layout="column"
+				ng-repeat="trending in trendingCuisines">
+				<md-card> <img ng-src="{{trending[5]}}"
+					class="md-card-image" alt="Washed Out"> <md-card-title>
+				<md-card-title-text>
+				<div>
+					<span class="md-headline truncate">{{trending[0]}}</span>
+				</div>
+				<div>
+					<span class="md-subhead truncate">{{trending[4]}}</span>
+				</div>
+				</md-card-title-text> </md-card-title> <md-card-content> Rating : <span
+					class="label label-pill label-success">{{trending[2]}}</span> </md-card-content> </md-card>
+			</div>
+			</md-content>
+		</div>
+
+
+		<div ng-init="getTrendingDishesList();">
+
+			<h4 class="trending">TRENDING DISHES</h4>
+			<md-content class="md-padding redContainer" layout-xs="column"
+				layout="row">
+			<div flex-xs flex-gt-xs="50" layout="column"
+				ng-repeat="trending in trendingdishes">
+				<md-card> <img ng-src="{{trending[5]}}"
+					class="md-card-image" alt="Washed Out"> <md-card-title>
+				<md-card-title-text>
+				<div>
+					<span class="md-headline truncate">{{trending[3]}}</span>
+				</div>
+				<div>
+					<span class="md-subhead truncate">{{trending[4]}}</span>
+				</div>
+				</md-card-title-text> </md-card-title> <md-card-content> Rating : <span
+					class="label label-pill label-success">{{trending[1]}}</span> </md-card-content> </md-card>
+			</div>
+			</md-content>
+		</div>
 	</div>
-	</md-content>
-	</div>
-	</div>
-	
+
 	<!-- /.container -->
 
-<div class="slides" if-not-user>
-  <div><img src="../css/Images/61121.jpg" width="300" height="300"/></div>
-  <div><img src="../css/Images/61122.jpg" width="300" height="300"/></div>
-  <div><img src="../css/Images/61123.jpg" width="300" height="300"/></div>
-  <div><img src="../css/Images/61124.jpg" width="300" height="300"/></div>
-  <div><img src="../css/Images/61125.png" width="300" height="300"/></div>
-</div>
- 
 </div>

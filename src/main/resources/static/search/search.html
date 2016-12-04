@@ -30,7 +30,7 @@
 						<span class="md-subhead">City : {{result.city}}</span>
 						<span class="md-subhead">ZipCode : {{result.zipcode}}</span>
 						</md-card-title-text> </md-card-title>
-						<md-button ng-click="showOnMap($event,result)">View on Map
+						<md-button ng-click="showOnMap($event,result,result.rest_name,result.city,result.zipcode)">View on Map
 					</md-button>
 					</md-card>
 				</div>
@@ -66,7 +66,7 @@
 				layout-xs="column" layout="row" ng-if="cuisineSearchResult.length >0">
 
 
-			<div class="search-result-row" ng-repeat="result in cuisineSearchResult">
+			<div class="search-result-row" ng-repeat="result in cuisineSearchResult | orderBy:'-rating'">
 				<div flex-xs flex-gt="50" layout="column" class="card-container">
 					<md-card> <md-card-title> <md-card-title-text>
 					<span class="md-headline"><a ui-sref="restaurant({ restId: result.restaurant.restaurant_ID })">
@@ -80,9 +80,14 @@
 						class="label label-pill label-warning"
 						ng-if="result.rating >=2.5 && result.rating < 4 ">{{result.rating | number: 2}}</span>
 					</span> <span class="md-subhead">City : {{result.restaurant.city}}</span>
-					</md-card-title-text> </md-card-title> <md-card-actions layout="row" layout-align="center">
+					<img alt="no image found" class="md-card-image" ng-src="{{result.imageURL}}"/>
+					</md-card-title-text> 
+					</md-card-title> <md-card-actions layout="row" layout-align="center">
 					<md-button ng-click="showCuisineDetail($event,result)">View Cuisine
-					Detail</md-button></md-card-actions> </md-card>
+					Detail</md-button>
+					<md-button ng-click="showOnMap($event,result,result.restaurant.rest_name,result.restaurant.city,result.restaurant.zipcode)">View on Map
+					</md-button>
+					</md-card-actions> </md-card>
 				</div>
 			</div>
 			</md-content>
@@ -117,7 +122,7 @@
 				layout-xs="column" layout="row" ng-if="dishSearchResult.length >0">
 
 
-			<div class="search-result-row" ng-repeat="result in dishSearchResult">
+			<div class="search-result-row" ng-repeat="result in dishSearchResult | orderBy:'-rating'">
 				<div flex-xs flex-gt="50" layout="column" class="card-container">
 					<md-card> <md-card-title> <md-card-title-text>
 					<span class="md-headline"><a ui-sref="restaurant({ restId: result.cuisine.restaurant.restaurant_ID })"> {{result.cuisine.restaurant.rest_name}}</a></span> <span
@@ -132,10 +137,13 @@
 						ng-if="result.rating >=2.5 && result.rating < 4 ">{{result.rating | number: 2}}</span>
 					</span> 
 					<span class="md-subhead">Price : {{result.dishPrice | currency}}</span>
-					<span class="md-subhead">City : {{result.cuisine.restaurant.city}}</span>
+					<img alt="no image found" class="md-card-image" ng-src="{{result.imageURL}}"/>
 					</md-card-title-text> </md-card-title> <md-card-actions layout="row" layout-align="center">
 					<md-button ng-click="showDishDetail($event,result)">View
-					Dish Detail</md-button> </md-card-actions> </md-card>
+					Dish Detail</md-button>
+					<md-button ng-click="showOnMap($event,result,result.cuisine.restaurant.rest_name,result.cuisine.restaurant.city,result.cuisine.restaurant.zipcode)">View on Map
+					</md-button>
+					 </md-card-actions> </md-card>
 				</div>
 			</div>
 			</md-content>

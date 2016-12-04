@@ -4,9 +4,9 @@
       <div class="md-toolbar-tools">
         <h2> Cuisine: {{currentCuisine.cuisine_name}}</h2>
         <span flex></span>
-        <!-- <md-button class="md-icon-button" ng-click="cancel()">
-          <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
-        </md-button> -->
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon class="glyphicon glyphicon-remove" aria-label="Close dialog"></md-icon>
+        </md-button>
       </div>
     </md-toolbar>
 
@@ -21,11 +21,5 @@
      </div>
       </div>
       </md-dialog-content>
-
-    <md-dialog-actions layout="row">
-      <md-button ng-click="cancel()">
-        Close
-      </md-button>
-    </md-dialog-actions>
   </form>
 </md-dialog>

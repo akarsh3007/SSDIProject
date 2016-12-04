@@ -16,9 +16,15 @@ width: 55% !important;
 margin-left : 22% !important;
 border :1px solid #b8c3dc;
 }
+.modal-comment-button{
+margin-right: auto;
+max-width: 30%;
 
-md-dialog{
-min-width:551px;
+}
+md-dialog-actions
+{
+ margin-top:-7%;
+ margin-left:1%;
 }
 </style>
 </head>
@@ -34,7 +40,7 @@ min-width:551px;
     Contact : {{restaurantDetail.contact}} <br/>
     Timing : {{restaurantDetail.openTime}}
      </md-subheader>
-<div ng-repeat="cuisineRow in restaurantDetail.cuisines">
+<div ng-repeat="cuisineRow in restaurantDetail.cuisines | orderBy:'cuisine_name'">
   <md-list-item>
 	<div class="col-sm-8"><b>{{cuisineRow.cuisine_name}}</b></div>
 	<!-- <div class="col-sm-4"><b>{{cuisineRow.cuisine_name}}</b></div> -->
@@ -66,7 +72,7 @@ min-width:551px;
       </md-menu-content>
      </md-menu>
 	</md-list-item>
-	<div ng-repeat="dishRow in cuisineRow.dish">
+	<div ng-repeat="dishRow in cuisineRow.dish | orderBy:'dish_name'">
   <md-list-item>
 	<div class="col-sm-4">{{dishRow.dish_name}}</div>
 	<div class="col-sm-4" title="Price">${{dishRow.dishPrice}}</div>
