@@ -22,9 +22,9 @@
             <span class="label label-pill label-warning" ng-if="currentItem.rating >=2.5 && currentItem.rating < 4 ">{{currentItem.rating | number:2}}</span>
      </div>
      <div class="reviews-container">
-     	<span class="comment-header">Comments-</span>
+     	<span class="comment-header"><b>Comments-</b></span>
      <div ng-repeat="cuisineReview in currentItem.cuisineReviews">
-    	<div class="username-comment">By {{cuisineReview.userName}} : {{cuisineReview.cuisineCommentDesc}}</div>
+    	<div class="username-comment">{{cuisineReview.userName}} says "{{cuisineReview.cuisineCommentDesc}}"</div>
      	 <md-divider ng-if="!$last"></md-divider>
      </div>
      </div>

@@ -13,9 +13,9 @@
     <md-dialog-content>
       <div class="md-dialog-content">
      <div class="reviews-container">
-    <b>Comments</b> 
+    <b>Comments-</b> 
      <div ng-repeat="dishReview in currentDish.dishReviews">
-     	<div>{{dishReview.dishCommentDesc}}</div>
+     	<div>{{dishReview.userName}} says "{{dishReview.dishCommentDesc}}"</div>
      	<md-divider></md-divider>
      </div>
      </div>

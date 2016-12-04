@@ -25,10 +25,9 @@
             <span class="label label-pill label-warning" ng-if="currentItem.rating >=2.5 && currentItem.rating < 4 ">{{currentItem.rating | number:2}}</span>
      </div>
      <div class="reviews-container">
-     Comments
+     <b>Comments-</b>
      <div ng-repeat="dishReview in currentItem.dishReviews">
-     	<div>{{dishReview.userName}}</div>
-     	<div>{{dishReview.dishCommentDesc}}</div>
+     	<div class="username-review">{{dishReview.userName}} says "{{dishReview.dishCommentDesc}}"</div>
      </div>
      </div>
       </div>
