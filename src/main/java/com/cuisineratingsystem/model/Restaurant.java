@@ -54,6 +54,9 @@ public class Restaurant implements Serializable {
 	@Column(name="open_time")
 	private String openTime;
 	
+	@Column(name="imageURL")
+	private String imageURL;
+		
 	public int getRestaurant_ID() {
 		return restaurant_ID;
 	}
@@ -140,5 +143,12 @@ public class Restaurant implements Serializable {
 		this.openTime = openTime;
 	}
 
+	public String getImageURL() {
+		return imageURL;
+	}
+
+	public void setImageURL(String imageURL) {
+		this.imageURL = imageURL;
+	}
 	
 }

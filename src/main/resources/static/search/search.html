@@ -30,6 +30,7 @@
 						<span class="md-subhead">Address : {{result.address}} , {{result.city}}, NC, {{result.zipcode}}</span>
 						<span class="md-subhead">Contact : {{result.contact}}</span>
 						<span class="md-subhead">Timing : {{result.openTime}}</span>
+						<img alt="no image found" class="md-card-image" ng-src="{{result.imageURL}}"/>
 						</md-card-title-text> </md-card-title>
 						<md-button ng-click="showOnMap($event,result,result.rest_name,result.city,result.zipcode)">View on Map
 					</md-button>
