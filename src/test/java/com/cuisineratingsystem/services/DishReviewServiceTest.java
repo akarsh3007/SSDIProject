@@ -16,7 +16,7 @@ import com.cuisineratingsystem.model.Cuisine;
 import com.cuisineratingsystem.model.Dish;
 import com.cuisineratingsystem.model.DishReview; 
 import com.cuisineratingsystem.model.Restaurant;
-
+ 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = CuisineratingsystemApplicationTests.class)
 @TestPropertySource(locations="classpath:applicationtest.properties")

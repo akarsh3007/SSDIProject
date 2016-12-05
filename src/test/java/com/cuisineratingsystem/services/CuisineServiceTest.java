@@ -26,7 +26,7 @@ public class CuisineServiceTest {
 	CuisineService cuisineService;
 	Cuisine cuisine;
 		
-	
+	 
 	@Before
 	public void setUp() throws Exception{
 		Restaurant restaurant = new Restaurant();

@@ -12,7 +12,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import com.cuisineratingsystem.CuisineratingsystemApplication;
 import com.cuisineratingsystem.CuisineratingsystemApplicationTests;
 
-
+  
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = CuisineratingsystemApplicationTests.class)
 @TestPropertySource(locations="classpath:applicationtest.properties")

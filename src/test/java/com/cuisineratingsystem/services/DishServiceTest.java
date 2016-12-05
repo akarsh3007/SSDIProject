@@ -44,7 +44,7 @@ public class DishServiceTest {
 		cuisine.setNo_of_raters(1);
 		cuisine.setRating(3);
 		cuisine.setRestaurant(restaurant);
-		
+		 
 		dish = new Dish();
 		dish.setDish_ID(1);
 		dish.setDish_name("test dish name");

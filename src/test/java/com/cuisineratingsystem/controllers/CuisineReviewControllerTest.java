@@ -21,7 +21,7 @@ import com.cuisineratingsystem.model.Restaurant;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = CuisineratingsystemApplicationTests.class)
-@TestPropertySource(locations="classpath:applicationtest.properties")
+@TestPropertySource(locations="classpath:applicationtest.properties") 
 public class CuisineReviewControllerTest {
 
 	private MockMvc mockmvc;

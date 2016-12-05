@@ -21,7 +21,7 @@ import com.cuisineratingsystem.model.Dish;
 @SpringBootTest(classes = CuisineratingsystemApplicationTests.class)
 @TestPropertySource(locations="classpath:applicationtest.properties")
 public class DishControllerTest {
-
+ 
 	private MockMvc mockMvc;
 	private Dish dish;
 	

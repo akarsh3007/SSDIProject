@@ -17,7 +17,7 @@ import com.cuisineratingsystem.services.UserService;
 @SpringBootTest(classes = CuisineratingsystemApplicationTests.class)
 @TestPropertySource(locations="classpath:applicationtest.properties")
 public class UserTest {
-
+ 
 	@Autowired
 	private UserService userService;
 	private User user;

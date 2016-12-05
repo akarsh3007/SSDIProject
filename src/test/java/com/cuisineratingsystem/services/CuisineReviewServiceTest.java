@@ -21,7 +21,7 @@ import com.cuisineratingsystem.model.Restaurant;
 @SpringBootTest(classes = CuisineratingsystemApplicationTests.class)
 @TestPropertySource(locations="classpath:applicationtest.properties")
 public class CuisineReviewServiceTest {
-
+   
 	@Autowired
 	private CuisineReviewService cuisineReviewService;
 	private CuisineReview cuisineReview;
