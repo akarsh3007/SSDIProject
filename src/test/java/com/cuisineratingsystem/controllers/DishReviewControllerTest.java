@@ -8,17 +8,20 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.cuisineratingsystem.CuisineratingsystemApplication;
+import com.cuisineratingsystem.CuisineratingsystemApplicationTests;
 import com.cuisineratingsystem.model.Cuisine;
 import com.cuisineratingsystem.model.Dish;
 import com.cuisineratingsystem.model.DishReview;
 import com.cuisineratingsystem.model.Restaurant;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = CuisineratingsystemApplication.class)
+@SpringBootTest(classes = CuisineratingsystemApplicationTests.class)
+@TestPropertySource(locations="classpath:applicationtest.properties")
 public class DishReviewControllerTest {
 
 	private MockMvc mockmvc;

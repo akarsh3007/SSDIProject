@@ -9,14 +9,17 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.cuisineratingsystem.CuisineratingsystemApplication;
+import com.cuisineratingsystem.CuisineratingsystemApplicationTests;
 import com.cuisineratingsystem.model.Dish;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = CuisineratingsystemApplication.class)
+@SpringBootTest(classes = CuisineratingsystemApplicationTests.class)
+@TestPropertySource(locations="classpath:applicationtest.properties")
 public class DishControllerTest {
 
 	private MockMvc mockMvc;

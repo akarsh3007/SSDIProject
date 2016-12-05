@@ -6,13 +6,16 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import com.cuisineratingsystem.CuisineratingsystemApplication;
+import com.cuisineratingsystem.CuisineratingsystemApplicationTests;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = CuisineratingsystemApplication.class)
+@SpringBootTest(classes = CuisineratingsystemApplicationTests.class)
+@TestPropertySource(locations="classpath:applicationtest.properties")
 public class AccountControllerTest {
 
 	private MockMvc mockMvc;	 

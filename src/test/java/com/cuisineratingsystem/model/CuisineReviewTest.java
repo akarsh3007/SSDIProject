@@ -1,30 +1,25 @@
-package com.cuisineratingsystem.controllers;
+package com.cuisineratingsystem.model;
 
 import static org.junit.Assert.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.web.servlet.MockMvc;
 
-import com.cuisineratingsystem.CuisineratingsystemApplication;
 import com.cuisineratingsystem.CuisineratingsystemApplicationTests;
-import com.cuisineratingsystem.model.Cuisine;
-import com.cuisineratingsystem.model.CuisineReview;
-import com.cuisineratingsystem.model.Restaurant;
+import com.cuisineratingsystem.services.CuisineReviewService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = CuisineratingsystemApplicationTests.class)
 @TestPropertySource(locations="classpath:applicationtest.properties")
-public class CuisineReviewControllerTest {
-
-	private MockMvc mockmvc;
+public class CuisineReviewTest {
+	
+	@Autowired
+	private CuisineReviewService cuisineReviewService;
 	private CuisineReview cuisineReview;
 	
 	@Before
@@ -46,20 +41,22 @@ public class CuisineReviewControllerTest {
 		
 		cuisineReview = new CuisineReview();
 		cuisineReview.setCuisine(cuisine);
-		cuisineReview.setCuisine_comment_ID(1);
+		cuisineReview.setCuisine_comment_ID(0);
 		cuisineReview.setCuisineCommentDesc("Test comment");
 		
 	}
+
+	
 	@Test
-	public void testAddReview() {
-		try {
-			mockmvc.perform(post("/addCuisineReview",cuisineReview))
-			.andExpect(status().isOk());
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
+	public void testCuisineIDPositive() {
+		boolean result = cuisineReviewService.addReview(cuisineReview);
+		assertNotNull(result);
+		
 	}
-
+	
+	/*@Test
+	public void testCuisineIDNegative() {
+		boolean result =cuisineReviewService.addReview(cuisineReview);
+		assertNull(result);
+	}*/
 }
