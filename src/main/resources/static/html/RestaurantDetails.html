@@ -26,6 +26,12 @@ md-dialog-actions
  margin-top:-7%;
  margin-left:1%;
 }
+body{
+background-image: url("/html/bck6.jpg");
+}
+.listdiv{
+background-color: white !important;
+}
 </style>
 </head>
 <body  >
@@ -36,7 +42,7 @@ md-dialog-actions
         <span class="md-headline">{{restaurantDetail.rest_name}}</span>
       </div>
     </md-toolbar>
-    <md-subheader class="md-no-sticky">Address : {{restaurantDetail.address}} {{restaurantDetail.city}}, {{restaurantDetail.zipcode}}<br/>
+    <md-subheader class="md-no-sticky">Address : {{restaurantDetail.address}}, {{restaurantDetail.city}}, NC, {{restaurantDetail.zipcode}}<br/>
     Contact : {{restaurantDetail.contact}} <br/>
     Timing : {{restaurantDetail.openTime}}
      </md-subheader>
