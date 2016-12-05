@@ -78,5 +78,11 @@ public class CuisineServiceTest {
 		List<Cuisine> list = cuisineService.getAllCuisinesByRestId(1);
 		assertNotNull(list);
 	}
+	
+	@Test
+	public void testGetTrendingCuisines(){
+		List<Cuisine> list = cuisineService.getTrendingCuisines();
+		assertNotNull(list);
+	}
 
 }

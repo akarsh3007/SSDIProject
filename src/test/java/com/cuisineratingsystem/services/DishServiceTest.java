@@ -63,10 +63,16 @@ public class DishServiceTest {
 		assertNotEquals(result,0);
 	}
 
-	/*@Test
+	@Test
 	public void testGetAllDishes() {
 		List<Dish> dishList = dishService.getAllDishes();
 		assertNotEquals(dishList,null);
-	}*/
+	}
+	
+	@Test
+	public void testGetTrendingDishes(){
+		List<Dish> list = dishService.getTrendingDishes();
+		assertNotNull(list);
+	}
 
 }

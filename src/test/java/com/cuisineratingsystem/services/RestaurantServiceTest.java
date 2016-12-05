@@ -48,5 +48,12 @@ public class RestaurantServiceTest {
 		Restaurant res = restaurantService.getRestaurantById(1);
 		assertNotNull(res);
 	}
+	
+	@Test
+	public void testSearchRestaurant(){
+		String searchToken = "Name";
+		List<Restaurant> list = restaurantService.searchRestaurant(searchToken);
+		assertNotNull(list);
+	}
 
 }
