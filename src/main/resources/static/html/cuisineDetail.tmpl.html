@@ -23,6 +23,9 @@
      </div>
      <div class="reviews-container">
      	<span class="comment-header"><b>Comments-</b></span>
+     	 <div ng-if="currentItem.cuisineReviews.length == 0">
+     	<div>There are no reviews for this item. Be the first one to review.</div>
+     </div> 
      <div ng-repeat="cuisineReview in currentItem.cuisineReviews">
     	<div class="username-comment">{{cuisineReview.userName}} says "{{cuisineReview.cuisineCommentDesc}}"</div>
      	 <md-divider ng-if="!$last"></md-divider>

@@ -26,6 +26,9 @@
      </div>
      <div class="reviews-container">
      <b>Comments-</b>
+     <div ng-if="currentItem.dishReviews.length == 0">
+     	<div>There are no reviews for this item. Be the first one to review.</div>
+     </div>
      <div ng-repeat="dishReview in currentItem.dishReviews">
      	<div class="username-review">{{dishReview.userName}} says "{{dishReview.dishCommentDesc}}"</div>
      </div>

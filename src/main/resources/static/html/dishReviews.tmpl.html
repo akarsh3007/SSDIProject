@@ -13,7 +13,10 @@
     <md-dialog-content>
       <div class="md-dialog-content">
      <div class="reviews-container">
-    <b>Comments-</b> 
+    <b>Comments-</b>
+    <div ng-if="currentDish.dishReviews.length == 0">
+     	<div>There are no reviews for this item. Be the first one to review.</div>
+     </div> 
      <div ng-repeat="dishReview in currentDish.dishReviews">
      	<div>{{dishReview.userName}} says "{{dishReview.dishCommentDesc}}"</div>
      	<md-divider></md-divider>
